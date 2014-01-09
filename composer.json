@@ -16,8 +16,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Message\\Mothership\\Report"      : "src",
-			"Message\\Mothership\\Report\\Test": "tests"
+			"Message\\Mothership\\Report\\"      : "src",
+			"Message\\Mothership\\Report\\Test\\": "tests"
 		}
 	},
 	"repositories": [
