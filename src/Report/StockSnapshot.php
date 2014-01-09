@@ -1,8 +1,8 @@
-<?php namespace UniformWares\Reports\Report;
+<?php namespace Message\Mothership\Report\Report;
 
 use DateTime;
 use DateTimeZone;
-use UniformWares\Reports\ReportType\TableReport;
+use Message\Mothership\Report\ReportType\TableReport;
 
 class StockSnapshot extends TableReport
 {

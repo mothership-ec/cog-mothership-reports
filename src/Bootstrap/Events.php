@@ -1,6 +1,6 @@
 <?php
 
-namespace UniformWares\Reports\Bootstrap;
+namespace Message\Mothership\Report\Bootstrap;
 
 use Message\Mothership\OrderReturn;
 

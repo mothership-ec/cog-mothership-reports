@@ -1,4 +1,4 @@
-<?php namespace UniformWares\Reports\ReportType;
+<?php namespace Message\Mothership\Report\ReportType;
 
 abstract class TableReport extends Report
 {
@@ -7,7 +7,7 @@ abstract class TableReport extends Report
 
 	/**
 	 * Default to the table report view.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getView()
@@ -17,7 +17,7 @@ abstract class TableReport extends Report
 
 	/**
 	 * Get the columns for the table.
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getColumns()
@@ -27,7 +27,7 @@ abstract class TableReport extends Report
 
 	/**
 	 * Format a column's value for rendering on the template.
-	 * 
+	 *
 	 * @param  string $column
 	 * @param  string $value
 	 * @return string

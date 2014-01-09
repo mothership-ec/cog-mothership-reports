@@ -1,6 +1,6 @@
 <?php
 
-namespace UniformWares\Reports\Bootstrap;
+namespace Message\Mothership\Report\Bootstrap;
 
 use Message\Cog\Event\SubscriberInterface;
 use Message\Cog\Event\Event;

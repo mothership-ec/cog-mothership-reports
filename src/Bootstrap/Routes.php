@@ -1,6 +1,6 @@
 <?php
 
-namespace UniformWares\Reports\Bootstrap;
+namespace Message\Mothership\Report\Bootstrap;
 
 use Message\Cog\Bootstrap\RoutesInterface;
 use Message\Cog\Service\Container as ServiceContainer;

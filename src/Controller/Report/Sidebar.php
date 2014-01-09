@@ -1,4 +1,4 @@
-<?php namespace UniformWares\Reports\Controller\Report;
+<?php namespace Message\Mothership\Report\Controller\Report;
 
 use Message\Cog\Controller\Controller;
 

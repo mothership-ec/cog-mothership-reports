@@ -1,4 +1,4 @@
-<?php namespace UniformWares\Reports\ReportType;
+<?php namespace Message\Mothership\Report\ReportType;
 
 use Message\Cog\Filesystem\File;
 
@@ -52,7 +52,7 @@ abstract class DownloadableReport extends Report {
 	 * @var integer;
 	 */
 	protected $limit;
-	
+
 	public function download()
 	{
 		// header('Content-type: text/csv');

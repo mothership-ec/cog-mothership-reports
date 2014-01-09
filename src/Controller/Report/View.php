@@ -1,7 +1,7 @@
-<?php namespace UniformWares\Reports\Controller\Report;
+<?php namespace Message\Mothership\Report\Controller\Report;
 
 use Message\Cog\Controller\Controller;
-use UniformWares\Reports\Report as Report;
+use Message\Mothership\Report\Report as Report;
 
 class View extends Controller
 {

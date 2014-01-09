@@ -1,6 +1,6 @@
-<?php namespace UniformWares\Reports\Report;
+<?php namespace Message\Mothership\Report\Report;
 
-use UniformWares\Reports\ReportType\DateRangeReport;
+use Message\Mothership\Report\ReportType\DateRangeReport;
 
 class SearchTermsDetail extends DateRangeReport {
 

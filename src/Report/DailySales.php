@@ -1,6 +1,6 @@
-<?php namespace UniformWares\Reports\Report;
+<?php namespace Message\Mothership\Report\Report;
 
-use UniformWares\Reports\ReportType\DailyReport;
+use Message\Mothership\Report\ReportType\DailyReport;
 
 class DailySales extends DailyReport
 {

@@ -1,11 +1,11 @@
-<?php namespace UniformWares\Reports\ReportType;
+<?php namespace Message\Mothership\Report\ReportType;
 
 abstract class DailyReport extends DateRangeReport
 {
-	
+
 	/**
 	 * Get the months total for a column.
-	 * 
+	 *
 	 * @param  string $month
 	 * @param  string $column
 	 * @return mixed

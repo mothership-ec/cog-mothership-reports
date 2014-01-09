@@ -1,6 +1,6 @@
 <?php
 
-namespace UniformWares\Reports\Collection;
+namespace Message\Mothership\Report\Collection;
 
 use Exception;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace UniformWares\Reports\Bootstrap;
+namespace Message\Mothership\Report\Bootstrap;
 
-use UniformWares\Reports\Report as Report;
+use Message\Mothership\Report\Report as Report;
 use Message\Cog\Bootstrap\ServicesInterface;
 
-use UniformWares\Reports\Collection;
+use Message\Mothership\Report\Collection;
 
 class Services implements ServicesInterface
 {

@@ -1,6 +1,6 @@
-<?php namespace UniformWares\Reports\Report;
+<?php namespace Message\Mothership\Report\Report;
 
-use UniformWares\Reports\ReportType\DownloadableReport;
+use Message\Mothership\Report\ReportType\DownloadableReport;
 
 class TopCustomers extends DownloadableReport
 {

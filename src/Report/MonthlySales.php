@@ -1,6 +1,6 @@
-<?php namespace UniformWares\Reports\Report;
+<?php namespace Message\Mothership\Report\Report;
 
-use UniformWares\Reports\ReportType\MonthlyReport;
+use Message\Mothership\Report\ReportType\MonthlyReport;
 
 class MonthlySales extends MonthlyReport
 {

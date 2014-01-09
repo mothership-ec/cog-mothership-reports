@@ -1,11 +1,11 @@
-<?php namespace UniformWares\Reports\ReportType;
+<?php namespace Message\Mothership\Report\ReportType;
 
 abstract class MonthlyReport extends TableReport
 {
 
 	/**
 	 * Default to the monthly report view.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getView()
@@ -15,7 +15,7 @@ abstract class MonthlyReport extends TableReport
 
 	/**
 	 * Get the year totals for a column.
-	 * 
+	 *
 	 * @param  string $year
 	 * @param  string $column
 	 * @return mixed

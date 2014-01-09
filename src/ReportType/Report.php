@@ -1,4 +1,4 @@
-<?php namespace UniformWares\Reports\ReportType;
+<?php namespace Message\Mothership\Report\ReportType;
 
 use ReflectionClass;
 use Message\Cog\DB\Query;
