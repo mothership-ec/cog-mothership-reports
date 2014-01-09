@@ -1,8 +1,11 @@
-<?php namespace Message\Mothership\Report\ReportType;
+<?php
+
+namespace Message\Mothership\Report\ReportType;
 
 use Message\Cog\Filesystem\File;
 
-abstract class DownloadableReport extends Report {
+abstract class DownloadableReport extends Report
+{
 
 	/**
 	 * The file to be written / read.
@@ -129,7 +132,6 @@ abstract class DownloadableReport extends Report {
 
 	public function getFilePath()
 	{
-		return 'cog://public/files/Report_' . $this->getName() . '_'.date('Y_m_d_H').'.csv';
-	}
+		return 'cog://public/files/Report_' . $this->getName() . '_'.date('Y_m_d_H').'.csv';	}
 
 }

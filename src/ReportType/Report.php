@@ -1,13 +1,16 @@
-<?php namespace Message\Mothership\Report\ReportType;
+<?php
 
-use ReflectionClass;
+namespace Message\Mothership\Report\ReportType;
+
 use Message\Cog\DB\Query;
 use Message\Cog\Controller\Controller;
 use Message\Cog\Filesystem\Filesystem;
 use Message\Cog\Filesystem\StreamWrapperInterface;
 
-abstract class Report {
+use ReflectionClass;
 
+abstract class Report
+{
 	protected $_filesystem;
 	protected $_stream;
 	protected $_query;
@@ -16,8 +19,8 @@ abstract class Report {
 	public function __construct(Filesystem $filesystem, StreamWrapperInterface $stream, Query $query)
 	{
 		$this->_filesystem = $filesystem;
-		$this->_stream = $stream;
-		$this->_query = $query;
+		$this->_stream     = $stream;
+		$this->_query      = $query;
 	}
 
 	/**
@@ -85,5 +88,4 @@ abstract class Report {
 	{
 		return $this->getName();
 	}
-
 }

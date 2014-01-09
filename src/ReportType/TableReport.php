@@ -1,8 +1,9 @@
-<?php namespace Message\Mothership\Report\ReportType;
+<?php
+
+namespace Message\Mothership\Report\ReportType;
 
 abstract class TableReport extends Report
 {
-
 	protected $data;
 
 	/**
@@ -36,5 +37,4 @@ abstract class TableReport extends Report
 	{
 		return $value;
 	}
-
 }

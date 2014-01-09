@@ -1,9 +1,11 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\DateRangeReport;
 
-class SearchTermsDetail extends DateRangeReport {
-
+class SearchTermsDetail extends DateRangeReport
+{
 	public function getForm()
 	{
 		$form = parent::getForm();
@@ -97,5 +99,4 @@ class SearchTermsDetail extends DateRangeReport {
 	{
 		return 'Search term logs - ' . $this->_controller->get('request')->get('term');
 	}
-
 }

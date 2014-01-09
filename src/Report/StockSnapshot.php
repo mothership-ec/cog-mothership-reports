@@ -1,12 +1,14 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
+
+use Message\Mothership\Report\ReportType\TableReport;
 
 use DateTime;
 use DateTimeZone;
-use Message\Mothership\Report\ReportType\TableReport;
 
 class StockSnapshot extends TableReport
 {
-
 	public function getView()
 	{
 		return '::report:stocksnapshot';
@@ -150,5 +152,4 @@ class StockSnapshot extends TableReport
 	{
 		return "Stock snapshot over a selected period";
 	}
-
 }

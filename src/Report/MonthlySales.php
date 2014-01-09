@@ -1,10 +1,11 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\MonthlyReport;
 
 class MonthlySales extends MonthlyReport
 {
-
 	public function view($params = array())
 	{
 		return parent::view($params + array(
@@ -92,5 +93,4 @@ class MonthlySales extends MonthlyReport
 	{
 		return "Monthly sales";
 	}
-
 }

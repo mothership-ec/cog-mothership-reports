@@ -1,10 +1,11 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\DownloadableReport;
 
 class TopCustomers extends DownloadableReport
 {
-
 	protected $limit = 600;
 
 	public function view($params = array())
@@ -39,5 +40,4 @@ class TopCustomers extends DownloadableReport
 	{
 		return "Top " . $this->limit . " customers by combined purchase amount";
 	}
-
 }

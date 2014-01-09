@@ -1,4 +1,6 @@
-<?php namespace Message\Mothership\Report\ReportType;
+<?php
+
+namespace Message\Mothership\Report\ReportType;
 
 use DateTime;
 use DatePeriod;
@@ -6,7 +8,6 @@ use DateInterval;
 
 abstract class DateRangeReport extends TableReport
 {
-
 	public function view($params = array())
 	{
 		$form = $this->getForm();
@@ -161,5 +162,4 @@ abstract class DateRangeReport extends TableReport
 	{
 		return '::report:daterangereport';
 	}
-
 }

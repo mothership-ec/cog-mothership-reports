@@ -1,8 +1,9 @@
-<?php namespace Message\Mothership\Report\ReportType;
+<?php
+
+namespace Message\Mothership\Report\ReportType;
 
 abstract class MonthlyReport extends TableReport
 {
-
 	/**
 	 * Default to the monthly report view.
 	 *
@@ -36,5 +37,4 @@ abstract class MonthlyReport extends TableReport
 
 		return false;
 	}
-
 }

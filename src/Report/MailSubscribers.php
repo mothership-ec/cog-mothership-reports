@@ -1,10 +1,11 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\DownloadableReport;
 
 class MailSubscribers extends DownloadableReport
 {
-
 	public function getData($from = null, $limit = null)
 	{
 
@@ -19,5 +20,4 @@ class MailSubscribers extends DownloadableReport
 	{
 		return "All customers who are opted in (email updates) GB only";
 	}
-
 }

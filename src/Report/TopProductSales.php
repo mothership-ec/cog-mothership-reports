@@ -1,18 +1,19 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\DateRangeReport;
 
 class TopProductSales extends DateRangeReport
 {
-
 	public function getColumns()
 	{
 		return array(
 			'position' => 'Position',
-			'model' => 'Model',
-			'finish' => 'Finish',
-			'sales' => 'Product Sales',
-			'units' => 'Units'
+			'model'    => 'Model',
+			'finish'   => 'Finish',
+			'sales'    => 'Product Sales',
+			'units'    => 'Units'
 		);
 	}
 
@@ -78,5 +79,4 @@ class TopProductSales extends DateRangeReport
 	{
 		return 'Top product sales';
 	}
-
 }

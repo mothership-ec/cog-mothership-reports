@@ -2,23 +2,16 @@
 
 namespace Message\Mothership\Report\Bootstrap;
 
-use Message\Mothership\OrderReturn;
+use Message\Mothership\ControlPanel\Event\BuildMenuEvent;
 
 use Message\Cog\Bootstrap\EventsInterface;
-use Message\Cog\Service\ContainerInterface;
-use Message\Cog\Service\ContainerAwareInterface;
 
-class Events implements EventsInterface, ContainerAwareInterface
+class Events implements EventsInterface
 {
-	protected $_services;
-
-	public function setContainer(ContainerInterface $container)
-	{
-		$this->_services = $container;
-	}
-
 	public function registerEvents($dispatcher)
 	{
-		$dispatcher->addSubscriber(new EventListener);
+		$dispatcher->addListener(BuildMenuEvent::BUILD_MAIN_MENU, function(BuildMenuEvent $event) {
+			$event->addItem('ms.commerce.report.dashboard', 'Reports', array('ms.report'));
+		});
 	}
 }

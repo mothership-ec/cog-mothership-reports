@@ -1,10 +1,11 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\DateRangeReport;
 
 class TopDestinationsByProducts extends DateRangeReport
 {
-
 	public function view($params = array())
 	{
 		return parent::view($params + array(
@@ -97,5 +98,4 @@ class TopDestinationsByProducts extends DateRangeReport
 	{
 		return "Top destination by products";
 	}
-
 }

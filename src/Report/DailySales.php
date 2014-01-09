@@ -1,10 +1,11 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\DailyReport;
 
 class DailySales extends DailyReport
 {
-
 	public function getColumns()
 	{
 		return array(
@@ -102,5 +103,4 @@ class DailySales extends DailyReport
 	{
 		return "Daily sales over a selected period";
 	}
-
 }

@@ -1,4 +1,6 @@
-<?php namespace Message\Mothership\Report\Controller\Report;
+<?php
+
+namespace Message\Mothership\Report\Controller\Report;
 
 use Message\Cog\Controller\Controller;
 

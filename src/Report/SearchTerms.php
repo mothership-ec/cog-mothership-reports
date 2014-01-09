@@ -1,9 +1,11 @@
-<?php namespace Message\Mothership\Report\Report;
+<?php
+
+namespace Message\Mothership\Report\Report;
 
 use Message\Mothership\Report\ReportType\DateRangeReport;
 
-class SearchTerms extends DateRangeReport {
-
+class SearchTerms extends DateRangeReport
+{
 	public function getColumns()
 	{
 		return array(
@@ -82,5 +84,4 @@ class SearchTerms extends DateRangeReport {
 	{
 		return '::report:searchterms';
 	}
-
 }

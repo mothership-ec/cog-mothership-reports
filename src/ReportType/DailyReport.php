@@ -1,8 +1,9 @@
-<?php namespace Message\Mothership\Report\ReportType;
+<?php
+
+namespace Message\Mothership\Report\ReportType;
 
 abstract class DailyReport extends DateRangeReport
 {
-
 	/**
 	 * Get the months total for a column.
 	 *
@@ -33,5 +34,4 @@ abstract class DailyReport extends DateRangeReport
 	{
 		return '::report:dailyreport';
 	}
-
 }
