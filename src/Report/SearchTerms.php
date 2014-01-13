@@ -9,8 +9,8 @@ class SearchTerms extends DateRangeReport
 	public function getColumns()
 	{
 		return array(
-			'term' => 'Term',
-			'frequency' => 'Frequency'
+			'term'      => 'Term',
+			'frequency' => 'Frequency',
 		);
 	}
 
@@ -66,6 +66,10 @@ class SearchTerms extends DateRangeReport
 	public function getStartDate()
 	{
 		$first = $this->_query->run('SELECT FROM_UNIXTIME(created_at) as created_at_time FROM search_log ORDER BY created_at ASC LIMIT 1');
+
+		if (count($first) < 1) {
+			return date('Y-m-01');
+		}
 
 		return date('Y-m-01', strtotime($first[0]->created_at_time));
 	}
