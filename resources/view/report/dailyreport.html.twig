@@ -1,0 +1,22 @@
+{% extends '::report:daterangereport' %}
+
+{% block reportTableBody %}
+	{% for month, days in data %}
+		{% for day, row in days %}
+			<tr>
+				{% for column, label in report.getColumns() %}
+					{% if attribute(row, column) != null %}
+						<td>{{ report.formatColumn(column, attribute(row, column))|raw }}</td>
+					{% else %}
+						<td>{{ report.formatColumn(column, null)|raw }}</td>
+					{% endif %}
+				{% endfor %}
+			</tr>
+		{% endfor %}
+		<tr class="total">
+			{% for column, label in report.getColumns() %}
+				<td>{{ report.formatColumn(column, report.getMonthTotals(month, column))|raw }}</td>
+			{% endfor %}
+		</tr>
+	{% endfor %}
+{% endblock %}

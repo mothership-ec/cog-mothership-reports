@@ -10,7 +10,7 @@ class Sidebar extends Controller
 	{
 		$reports = $this->get('report.reports');
 
-		return $this->render('UniformWares:Reports::report:sidebar', array(
+		return $this->render('Message:Mothership:Report::report:sidebar', array(
 			'reports'  => $reports,
 			'selected' => $selected,
 		));

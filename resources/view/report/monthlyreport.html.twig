@@ -1,0 +1,19 @@
+{% extends '::report:template' %}
+
+{% block reportTableBody %}
+	{% for year, months in data %}
+		{% for month, row in months %}
+			<tr>
+				{% for column, label in report.getColumns() %}
+					<td>{{ report.formatColumn(column, attribute(row, column))|raw }}</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+
+		<tr class="total">
+			{% for column, label in report.getColumns() %}
+				<td>{{ report.formatColumn(column, report.getYearTotals(year, column))|raw }}</td>
+			{% endfor %}
+		</tr>
+	{% endfor %}
+{% endblock %}
