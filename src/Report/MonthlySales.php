@@ -16,16 +16,16 @@ class MonthlySales extends MonthlyReport
 	public function getColumns()
 	{
 		return array(
-			'date' => 'Date',
-			'grossIncome' => 'Gross Income',
-			'salesExcVAT' => 'Ex VAT Income',
-			'ordersPlaced' => 'Orders Placed',
-			'averageTotal' => 'Average Order Value',
+			'date'          => 'Date',
+			'grossIncome'   => 'Gross Income',
+			'salesExcVAT'   => 'Ex VAT Income',
+			'ordersPlaced'  => 'Orders Placed',
+			'averageTotal'  => 'Average Order Value',
 			'nonTaxedSales' => 'Non Taxed Sales',
-			'salesVAT' => 'VAT On Sales',
-			'fedexUK' => 'Fedex UK',
-			'fedexExpress' => 'Fedex Express',
-			'fedexVAT' => 'VAT on Fedex'
+			'salesVAT'      => 'VAT On Sales',
+			'fedexUK'       => 'Fedex UK',
+			'fedexExpress'  => 'Fedex Express',
+			'fedexVAT'      => 'VAT on Fedex',
 		);
 	}
 
@@ -36,7 +36,7 @@ class MonthlySales extends MonthlyReport
 			return '&pound;' . number_format($value, 2);
 		}
 		elseif ('date' === $column and 'Year Total' !== $value) {
-			$url = $this->_controller->generateUrl('ms.commerce.report.view', array(
+			$url = $this->_controller->generateUrl('ms.report.view', array(
 				'slug' => 'daily-sales',
 				'month' => date('Y-m', strtotime($value)),
 			));

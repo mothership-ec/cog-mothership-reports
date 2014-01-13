@@ -11,7 +11,7 @@ class Events implements EventsInterface
 	public function registerEvents($dispatcher)
 	{
 		$dispatcher->addListener(BuildMenuEvent::BUILD_MAIN_MENU, function(BuildMenuEvent $event) {
-			$event->addItem('ms.commerce.report.dashboard', 'Reports', array('ms.report'));
+			$event->addItem('ms.report.dashboard', 'Reports', array('ms.report'));
 		});
 	}
 }

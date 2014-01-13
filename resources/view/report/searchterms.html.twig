@@ -7,7 +7,7 @@
 			{% for column, label in report.getColumns() %}
 				{% if column == 'frequency' %}
 					<td>
-						<a href="{{ url('ms.commerce.report.view', {slug: 'search-terms-detail', term: row.term}) }}">
+						<a href="{{ url('ms.report.view', {slug: 'search-terms-detail', term: row.term}) }}">
 							{{ attribute(row, column) }}
 						</a>
 						<div class="percentage-bar">
