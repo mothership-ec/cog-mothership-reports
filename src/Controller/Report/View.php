@@ -8,8 +8,12 @@ class View extends Controller
 {
 	public function index($slug)
 	{
-		$report = $this->get('report.reports')->get($slug)->value;
+		$reports = $this->get('report.reports');
 
-		return $report->index($this);
+		if (!array_key_exists($slug, $reports)) {
+			throw $this->createNotFoundException('Report not found');
+		}
+
+		return $reports[$slug]->index($this);
 	}
 }
