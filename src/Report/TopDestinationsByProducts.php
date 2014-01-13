@@ -16,12 +16,12 @@ class TopDestinationsByProducts extends DateRangeReport
 	public function getColumns()
 	{
 		return array(
-			'position' => 'Position',
-			'country' => 'Country',
-			'productName' => 'Model',
-			'options' => 'Finish',
-			'grossIncome' => 'Product Sales',
-			'ordersPlaced' => 'Orders'
+			'position'     => 'Position',
+			'country'      => 'Country',
+			'productName'  => 'Product',
+			'options'      => 'Options',
+			'grossIncome'  => 'Product Sales',
+			'ordersPlaced' => 'Orders',
 		);
 	}
 

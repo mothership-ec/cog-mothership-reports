@@ -16,16 +16,13 @@ class TopDestinationsBySales extends DateRangeReport
 	public function getColumns()
 	{
 		return array(
-			'position' => 'Position',
-			'country' => 'Country',
-			'grossIncome' => 'Gross Income',
-			'salesExcVAT' => 'Ex VAT Sales Total',
+			'position'     => 'Position',
+			'country'      => 'Country',
+			'grossIncome'  => 'Gross Income',
+			'salesExcVAT'  => 'Ex VAT Sales Total',
 			'ordersPlaced' => 'Orders Placed',
 			'averageTotal' => 'Average Order Value',
-			'salesVAT' => 'VAT On Sales',
-			'fedexUK' => 'Fedex UK',
-			'fedexExpress' => 'Fedex Express',
-			'fedexVAT' => 'VAT On Fedex'
+			'salesVAT'     => 'VAT On Sales',
 		);
 	}
 
@@ -49,9 +46,6 @@ class TopDestinationsBySales extends DateRangeReport
 				COUNT(os.order_id) AS ordersPlaced,
 				SUM( IF(os.total_gross IS NOT NULL, os.total_gross, 0) ) / COUNT(os.order_id) AS averageTotal,
 				SUM( IF(os.total_tax IS NOT NULL, os.total_tax, 0) ) AS salesVAT,
-				SUM( IF(oa.country_id = "GB", osp.gross, 0) ) AS fedexUK,
-				SUM( IF(oa.country_id != "GB", osp.gross, 0) ) AS fedexExpress,
-				SUM( IFNULL(osp.tax, 0) ) AS fedexVAT,
 				os.created_at
 			FROM
 				order_summary os

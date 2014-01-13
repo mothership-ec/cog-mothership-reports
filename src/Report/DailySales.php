@@ -9,16 +9,13 @@ class DailySales extends DailyReport
 	public function getColumns()
 	{
 		return array(
-			'date' => 'Date',
-			'grossIncome' => 'Gross Income',
-			'salesExcVAT' => 'Ex VAT Income',
-			'ordersPlaced' => 'Orders Placed',
-			'averageTotal' => 'Average Order Value',
+			'date'          => 'Date',
+			'grossIncome'   => 'Gross Income',
+			'salesExcVAT'   => 'Ex VAT Income',
+			'ordersPlaced'  => 'Orders Placed',
+			'averageTotal'  => 'Average Order Value',
 			'nonTaxedSales' => 'Non Taxed Sales',
-			'salesVAT' => 'VAT On Sales',
-			'fedexUK' => 'Fedex UK',
-			'fedexExpress' => 'Fedex Express',
-			'fedexVAT' => 'VAT on Fedex'
+			'salesVAT'      => 'VAT On Sales',
 		);
 	}
 
@@ -45,10 +42,7 @@ class DailySales extends DailyReport
 				COUNT(os.order_id) AS ordersPlaced,
 				SUM(os.total_gross) / COUNT(os.order_id) AS averageTotal,
 				SUM( IF(os.total_tax IS NULL, os.total_net, 0) ) AS nonTaxedSales,
-				SUM( IF(os.total_tax IS NOT NULL, os.total_tax, 0) ) AS salesVAT,
-				SUM( IF(oa.country_id = "GB", osp.gross, 0) ) AS fedexUK,
-				SUM( IF(oa.country_id != "GB", osp.gross, 0) ) AS fedexExpress,
-				SUM( IFNULL(osp.tax, 0) ) AS fedexVAT
+				SUM( IF(os.total_tax IS NOT NULL, os.total_tax, 0) ) AS salesVAT
 			FROM
 				order_summary os
 			LEFT JOIN

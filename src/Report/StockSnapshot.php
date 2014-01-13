@@ -17,9 +17,9 @@ class StockSnapshot extends TableReport
 	public function getColumns()
 	{
 		return array(
-			'model'       => 'Model',
-			'finish'      => 'Finish',
-			'stockTotal'  => 'Stock Total',
+			'product'    => 'Product',
+			'options'    => 'Options',
+			'stockTotal' => 'Stock Total',
 		);
 	}
 
@@ -60,8 +60,8 @@ class StockSnapshot extends TableReport
 	{
 		$query = '
 			SELECT
-				p.name as model,
-				uo.option_value as finish,
+				p.name as product,
+				uo.option_value as options,
 				ss.stock as stockTotal,
 				p.category as category
 			FROM
@@ -133,12 +133,14 @@ class StockSnapshot extends TableReport
 
 	public function getLastSnapshot()
 	{
-		$query = "
+		$result = $this->_query->run("
 			SELECT created_at
 			FROM product_unit_stock_snapshot
 			ORDER BY created_at DESC
 			LIMIT 1
-		";
+		");
+
+		return (count($result) < 1) ? time() : $result->value();
 
 		return $this->_query->run($query)->value();
 	}

@@ -10,10 +10,10 @@ class TopProductSales extends DateRangeReport
 	{
 		return array(
 			'position' => 'Position',
-			'model'    => 'Model',
-			'finish'   => 'Finish',
+			'product'  => 'Product',
+			'options'  => 'Options',
 			'sales'    => 'Product Sales',
-			'units'    => 'Units'
+			'units'    => 'Units',
 		);
 	}
 
@@ -31,8 +31,8 @@ class TopProductSales extends DateRangeReport
 	{
 		$query = "
 			SELECT
-				oi.product_name AS model,
-				REPLACE(REPLACE(oi.options, ', Standard', ''), CONCAT(oi.product_name, ', '), '') AS finish,
+				oi.product_name AS product,
+				oi.options AS options,
 				SUM(oi.gross) AS sales,
 				COUNT(oi.unit_id) AS units,
 				oi.unit_id,

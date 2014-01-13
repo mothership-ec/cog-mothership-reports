@@ -23,9 +23,6 @@ class MonthlySales extends MonthlyReport
 			'averageTotal'  => 'Average Order Value',
 			'nonTaxedSales' => 'Non Taxed Sales',
 			'salesVAT'      => 'VAT On Sales',
-			'fedexUK'       => 'Fedex UK',
-			'fedexExpress'  => 'Fedex Express',
-			'fedexVAT'      => 'VAT on Fedex',
 		);
 	}
 
@@ -58,9 +55,6 @@ class MonthlySales extends MonthlyReport
 					SUM(os.total_gross) / COUNT(os.order_id) AS averageTotal,
 					SUM( IF(os.total_tax IS NULL, os.total_net, 0) ) AS nonTaxedSales,
 					SUM( IF(os.total_tax IS NOT NULL, os.total_tax, 0) ) AS salesVAT,
-					SUM( IF(oa.country_id = "GB", osp.gross, 0) ) AS fedexUK,
-			 		SUM( IF(oa.country_id != "GB", osp.gross, 0) ) AS fedexExpress,
-			 		SUM( IFNULL(osp.tax, 0) ) AS fedexVAT,
 					os.created_at
 				  FROM order_summary os
 				  LEFT JOIN order_address oa ON (os.order_id = oa.order_id)
