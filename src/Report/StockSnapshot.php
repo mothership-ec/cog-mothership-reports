@@ -58,10 +58,10 @@ class StockSnapshot extends TableReport
 
 	public function getData($from = null, $limit = null)
 	{
-		$query = '
+		$query = "
 			SELECT
 				p.name as product,
-				uo.option_value as options,
+				TRIM(BOTH ', ' FROM GROUP_CONCAT(uo.option_value, ', ')) as options,
 				ss.stock as stockTotal,
 				p.category as category
 			FROM
@@ -71,17 +71,27 @@ class StockSnapshot extends TableReport
 			LEFT JOIN
 				product p ON u.product_id = p.product_id
 			LEFT JOIN
-				product_unit_option uo ON uo.unit_id = u.unit_id
+				(
+					SELECT
+						unit_id,
+						MAX(revision_id) as revision_id
+					FROM
+						product_unit_option
+					GROUP BY
+						unit_id
+				)
+				AS unit_revision ON unit_revision.unit_id = u.unit_id
+			LEFT JOIN
+				product_unit_option uo ON uo.unit_id = u.unit_id AND uo.revision_id = unit_revision.revision_id AND option_value != '' AND option_value IS NOT NULL
 			WHERE
-				uo.option_name = "colour" AND
-				ss.created_at >= ? AND
-				ss.created_at <= ?
+				ss.created_at >= ?
+			AND ss.created_at <= ?
 			GROUP BY
 				ss.unit_id
 			ORDER BY
 				p.category DESC,
 				ss.unit_id ASC
-		';
+		";
 
 		$form = $this->getForm()->getFilteredData();
 
@@ -108,17 +118,17 @@ class StockSnapshot extends TableReport
 				);
 			}
 
-			if (! isset($data[$row->category]->models[$row->model])) {
-				$data[$row->category]->models[$row->model] = (object) array(
-					'label' => $row->model,
+			if (! isset($data[$row->category]->models[$row->product])) {
+				$data[$row->category]->models[$row->product] = (object) array(
+					'label' => $row->product,
 					'total' => 0,
 					'rows' => array()
 				);
 			}
 
 			$data[$row->category]->total += $row->stockTotal;
-			$data[$row->category]->models[$row->model]->total += $row->stockTotal;
-			$data[$row->category]->models[$row->model]->rows[] = $row;
+			$data[$row->category]->models[$row->product]->total += $row->stockTotal;
+			$data[$row->category]->models[$row->product]->rows[] = $row;
 		}
 
 		return $data;
