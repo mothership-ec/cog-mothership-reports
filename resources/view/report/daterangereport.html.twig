@@ -1,22 +1,25 @@
 {% extends '::report:template' %}
 
 {% block reportHeader %}
-	<div class="display-group">
-		<h2 class="title">Filter</h2>
-		<div class="content-wrap">
-			<div class="filter-by">
+	<div class="dual-column">
+		<h2 class="title">Filter by</h2>
+		<div class="content">
+			<div class="column">
 				{{ form_start(form) }}
 					{{ form_row(form.month) }}
-
+					<h5>OR enter a date range</h5>
 					{{ form_row(form.date_from) }}
 					{{ form_row(form.date_to) }}
-
-					<button type="submit" class="button small filter">Filter Dates</button>
+			</div>
+			<div class="column">
+				{% if form.term %}
+					{{ form_row(form.term) }}
+				{% endif %}
+				<button type="submit" class="button small filter">Filter</button>
 				{{ form_end(form) }}
 			</div>
 		</div>
 	</div>
-
 	{% if show_range %}
 		<h2>{{ range_start }} to {{ range_end }}</h2>
 	{% endif %}
@@ -31,3 +34,4 @@
 		</tr>
 	{% endfor %}
 {% endblock %}
+
