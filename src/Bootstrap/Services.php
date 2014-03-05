@@ -11,7 +11,7 @@ class Services implements ServicesInterface
 {
 	public function registerServices($services)
 	{
-		$services['report.reports'] = $services->share(function($c) {
+		$services['report.reports'] = function($c) {
 			return [
 				'search-terms'                 => new Report\SearchTerms($c['filesystem'], $c['filesystem.stream_wrapper'], $c['db.query']),
 				'search-terms-detail'          => new Report\SearchTermsDetail($c['filesystem'], $c['filesystem.stream_wrapper'], $c['db.query']),
@@ -22,6 +22,6 @@ class Services implements ServicesInterface
 				'top-destinations-by-sales'    => new Report\TopDestinationsBySales($c['filesystem'], $c['filesystem.stream_wrapper'], $c['db.query']),
 				'stock-snapshot'               => new Report\StockSnapshot($c['filesystem'], $c['filesystem.stream_wrapper'], $c['db.query']),
 			];
-		});
+		};
 	}
 }
