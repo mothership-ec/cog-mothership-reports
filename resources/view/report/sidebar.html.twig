@@ -1,0 +1,5 @@
+<ol class="menu">
+{% for slug, report in reports %}
+	<li><a href="{{ url('ms.report.view', {'slug': slug}) }}" data-live>{{ report.name }}</a></li>
+{% endfor %}
+</ol>

@@ -1,0 +1,29 @@
+{% extends '::report:daterangereport' %}
+
+
+{% block reportTableBody %}
+	{% for row in data %}
+		<tr>
+			{% for column, label in report.getColumns() %}
+				{% if column == 'frequency' %}
+					<td>
+						<a href="{{ url('ms.report.view', {slug: 'search-terms-detail', term: row.term}) }}">
+							{{ attribute(row, column) }}
+						</a>
+						<div class="percentage-bar">
+							<div class="percentage" style="width: {{ row.percentage }}%">{{ row.percentage }}%</div>
+						</div>
+					</td>
+				{% elseif column == 'term' %}
+					<td>
+						<a href="{{ url('ms.cms.search', {terms: row.term}) }}">
+							{{ row.term }}
+						</a>
+					</td>
+				{% else %}
+					<td>{{ report.formatColumn(column, attribute(row, column))|raw }}</td>
+				{% endif %}
+			{% endfor %}
+		</tr>
+	{% endfor %}
+{% endblock %}
