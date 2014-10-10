@@ -4,14 +4,14 @@ namespace Message\Mothership\Report\Bootstrap;
 
 use Message\Cog\Bootstrap\ServicesInterface;
 
-use Message\Cog\ValueObject\Collection;
+use Message\Mothership\Report\Report;
 
 class Services implements ServicesInterface
 {
 	public function registerServices($services)
 	{
 		$services['report.collection'] = function($c) {
-			return new Collection;
+			return new Report\Collection;
 		};
 	}
 }
