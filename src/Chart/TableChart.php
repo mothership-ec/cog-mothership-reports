@@ -6,7 +6,7 @@ class TableChart implements ChartInterface
 {
 	public function getView()
 	{
-		return "charts:table.html.twig";
+		return "Message:Motership:Report::charts:table";
 	}
 
 	public function setColumns(array $columns)

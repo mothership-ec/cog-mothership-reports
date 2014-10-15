@@ -10,6 +10,8 @@ class DashboardController extends BaseController
 	{
 		$reports = $this->get('report.collection');
 
-		de($reports);
+		return $this->render('Message:Mothership:Report::dashboard', [
+				'reports' => $reports,
+			]);
 	}
 }

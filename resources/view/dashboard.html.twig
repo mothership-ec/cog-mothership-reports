@@ -1,0 +1,19 @@
+{% extends 'Message:Mothership:ControlPanel::_templates/cp' %}
+
+{% block sidebar %}
+	{{ render(controller('Message:Mothership:Commerce::Controller:Product:Sidebar#index', {'productID':product.id}))}}
+{% endblock %}
+
+{% block content %}
+	<div class="dashboard">
+		<div class="modules">
+			{% for report in reports %}
+				<a href="#">{{ report.name }}</a>
+			{% else %}
+				<div class="container-content">
+					<p>I don't have any flashy graphs and numbers to show you :(</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
