@@ -7,6 +7,12 @@ namespace Message\Mothership\Report\Report;
  */
 abstract class AbstractReport implements ReportInterface
 {
+	/**
+	 * The name of the report
+	 * @var string the key to use to find the correct report
+	 */
+	public $name;
+
 	private $_filters;
 	private $_charts;
 

@@ -2,20 +2,10 @@
 
 namespace Message\Mothership\Report\Chart;
 
-class TableChart implements ChartInterface
+class TableChart extends AbstractChart
 {
 	public function getView()
 	{
-		return "Message:Motership:Report::charts:table";
-	}
-
-	public function setColumns(array $columns)
-	{
-		$this->_columns = $columns;
-	}
-
-	public function setData(array $data)
-	{
-		$this->_data = $data;
+		return "Message:Mothership:Report::charts:table";
 	}
 }
