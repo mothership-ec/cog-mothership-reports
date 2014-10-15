@@ -10,7 +10,7 @@ class Routes implements RoutesInterface
 	{
 		$router['ms.report']->setParent('ms.cp')->setPrefix('/reports');
 
-		$router['ms.report']->add('ms.report.dashboard', '', 'Message:Mothership:Commerce::Controller:Product:Dashboard#index');
+		$router['ms.report']->add('ms.report.dashboard', '', 'Message:Mothership:Report::Controller:DashboardController#index');
 
 	}
 }

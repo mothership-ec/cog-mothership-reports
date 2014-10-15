@@ -3,15 +3,22 @@
 namespace Message\Mothership\Report\Bootstrap;
 
 use Message\Cog\Bootstrap\ServicesInterface;
-
-use Message\Mothership\Report\Report;
+use Message\Mothership\Report;
 
 class Services implements ServicesInterface
 {
 	public function registerServices($services)
 	{
 		$services['report.collection'] = function($c) {
-			return new Report\Collection;
+			// Build report collection
+			$reports = new Report\Report\Collection;
+
+			$event = $c['event.dispatcher']->dispatch(
+				Report\Event\ReportEvent::REGISTER_REPORTS,
+				new Report\Event\BuildReportCollectionEvent($reports)
+			);
+
+			return $reports;
 		};
 	}
 }

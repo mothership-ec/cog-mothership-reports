@@ -11,7 +11,7 @@ use Message\Mothership\ControlPanel\Event\Event as CPEvent;
  *
  * @author Laurence Roberts <laurence@message.co.uk>
  */
-class DashboardListener extends BaseListener implements SubscriberInterface
+class EventListener extends BaseListener implements SubscriberInterface
 {
 
 	/**
