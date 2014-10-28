@@ -6,6 +6,6 @@ class ColumnChart extends AbstractChart
 {
 	public function getView()
 	{
-		return "charts:column.html.twig";
+		return "Message:Mothership:Report::charts:column";
 	}
 }

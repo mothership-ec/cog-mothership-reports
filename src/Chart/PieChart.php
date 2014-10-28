@@ -6,6 +6,6 @@ class PieChart extends AbstractChart
 {
 	public function getView()
 	{
-		return "charts:pie.html.twig";
+		return "Message:Mothership:Report::charts:pie";
 	}
 }

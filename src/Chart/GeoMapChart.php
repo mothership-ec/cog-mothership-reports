@@ -6,6 +6,6 @@ class GeoMapChart extends AbstractChart
 {
 	public function getView()
 	{
-		return "charts:geomap.html.twig";
+		return "Message:Mothership:Report::charts:geo-map";
 	}
 }
