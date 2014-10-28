@@ -12,6 +12,7 @@ abstract class AbstractReport implements ReportInterface
 	 * @var string the key to use to find the correct report
 	 */
 	public $name;
+	public $reportGroup;
 
 	private $_filters;
 	private $_charts;

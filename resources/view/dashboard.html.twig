@@ -7,12 +7,14 @@
 {% block content %}
 	<div class="dashboard">
 		<div class="modules">
-			{% for report in reports %}
-				<a href="{{ url('ms.report.view', {'reportName': report.name}) }}">{{ report.name }}</a>
-			{% else %}
-				<div class="container-content">
-					<p>I don't have any flashy graphs and numbers to show you :(</p>
-				</div>
+			{% for group in reportGroups %}
+				{% for report in group %}
+					{% if loop.first %}
+						<br /><strong>{{ group.name }}</strong><br />
+					{% else %}
+						<a href="{{ url('ms.report.view', {'reportName': report.name}) }}">{{ report.name }}</a><br />
+					{% endif %}
+ 				{% endfor %}
 			{% endfor %}
 		</div>
 	</div>

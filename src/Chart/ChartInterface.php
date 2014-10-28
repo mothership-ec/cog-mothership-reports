@@ -6,5 +6,7 @@ interface ChartInterface
 {
 	public function getView();
 
-	public function setData(array $data);
+	public function setData($data);
+
+	public function setColumns($columns);
 }

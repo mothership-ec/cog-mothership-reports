@@ -4,10 +4,15 @@ namespace Message\Mothership\Report\Chart;
 
 abstract class AbstractChart implements ChartInterface
 {
-	protected $_data;
 
-	public function setData(array $data)
+	public function setData($data)
 	{
 		$this->data = $data;
 	}
+
+	public function setColumns($columns)
+	{
+		$this->columns = $columns;
+	}
+
 }

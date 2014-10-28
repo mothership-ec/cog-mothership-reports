@@ -1,12 +1,28 @@
-<table>
-{% for row in data %}
-	{% set firstRow = loop.first %}
-	<tr>
-    {% for cell in row %}
-	{% if firstRow %} <th> {% else %} <td> {% endif %}
-		{{ cell }}
-	{% if firstRow %} </th> {% else %} </td> {% endif %}
-    {% endfor %}
-	</tr>
-{% endfor %}
-</table>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["table"]});
+      google.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var chart = new google.visualization.DataTable();
+        var columns = {{ columns|raw }}
+
+        for (i = 0; i < columns.length; i++) {
+          chart.addColumn(columns[i].type, columns[i].name);
+        }
+
+        chart.addRows( {{ data|raw }} );
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(chart);
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="table_div"></div>
+  </body>
+</html>
