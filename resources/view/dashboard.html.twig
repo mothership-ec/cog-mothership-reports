@@ -12,7 +12,7 @@
 					{% if loop.first %}
 						<br /><strong>{{ group.name }}</strong><br />
 					{% else %}
-						<a href="{{ url('ms.report.view', {'reportName': report.name}) }}">{{ report.name }}</a><br />
+						<a href="{{ url('ms.report.view', {'reportName': report.name}) }}">{{ report.displayName }}</a><br />
 					{% endif %}
  				{% endfor %}
 			{% endfor %}

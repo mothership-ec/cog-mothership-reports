@@ -6,6 +6,7 @@
       google.setOnLoadCallback(drawTable);
 
       function drawTable() {
+
         var chart = new google.visualization.DataTable();
         var columns = {{ columns|raw }}
 
@@ -17,7 +18,7 @@
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
 
-        table.draw(chart);
+        table.draw(chart, {allowHtml: true} );
 
       }
     </script>

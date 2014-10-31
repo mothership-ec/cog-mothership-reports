@@ -2,38 +2,52 @@
 
 namespace Message\Mothership\Report\Report;
 
-/**
- * Abstract Report class to handle the filter and chart collections.
- */
+use Message\Cog\DB\QueryBuilderInterface;
+use Message\Cog\DB\QueryBuilderFactory;
+use Message\Cog\Localisation\Translator;
+use Message\Cog\Routing\UrlGenerator;
+
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
 abstract class AbstractReport implements ReportInterface
 {
-	/**
-	 * The name of the report
-	 * @var string the key to use to find the correct report
-	 */
 	public $name;
+	public $displayName;
 	public $reportGroup;
 
-	private $_filters;
-	private $_charts;
+	protected $_builderFactory;
+	protected $_trans;
+	protected $_routingGenerator;
 
-	public function setFilters(Collection $filters)
+	public function __construct(QueryBuilderFactory $builderFactory, Translator $trans, UrlGenerator $routingGenerator)
 	{
-		$this->_filters = $filters;
+		$this->_builderFactory = $builderFactory;
+		$this->_trans = $trans;
+		$this->_routingGenerator = $routingGenerator;
 	}
 
-	public function setCharts(Collection $charts)
+	public function getName()
 	{
-		$this->_charts = $charts;
+		return $this->_name;
 	}
 
-	public function getFilters()
+	public function getDisplayName()
 	{
-		return $_filters;
+		return $this->_displayName;
 	}
 
-	public function getCharts()
+	public function getReportGroup()
 	{
-		return $_charts;
+		return $this->_reportGroup;
+	}
+
+	public function generateUrl($routeName, $params = array(), $absolute = UrlGeneratorInterface::ABSOLUTE_PATH)
+	{
+		// if(null === $this->routingGenerator)
+		// {
+		// 	//throw new logic exception "did you override construct?"
+		// }
+
+		return $this->_routingGenerator->generate($routeName, $params, $absolute);
 	}
 }

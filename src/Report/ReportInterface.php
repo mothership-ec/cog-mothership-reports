@@ -6,9 +6,9 @@ interface ReportInterface
 {
 	public function getName();
 
+	public function getDisplayName();
+
 	public function getReportGroup();
 
-	public function getFilters();
-
-	public function getCharts();
+	public function generateUrl($routeName, $params = array(), $absolute = UrlGeneratorInterface::ABSOLUTE_PATH);
 }

@@ -7,7 +7,7 @@
 {% block content %}
 	<div class="dashboard">
 		<div class="modules">
-			{{ report.name }}
+			{{ report.displayName }}
 
 			{% for chart in report.charts %}
 			    {% include chart.view with {'data' : chart.data, 'columns' : chart.columns} only %}
