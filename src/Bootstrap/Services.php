@@ -14,7 +14,7 @@ class Services implements ServicesInterface
 			$reports = new Report\Report\Collection;
 
 			$event = $c['event.dispatcher']->dispatch(
-				Report\Event\ReportEvent::REGISTER_REPORTS,
+				Report\Event\Events::REGISTER_REPORTS,
 				new Report\Event\BuildReportCollectionEvent($reports)
 			);
 
