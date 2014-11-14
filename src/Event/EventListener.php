@@ -13,7 +13,6 @@ use Message\Mothership\ControlPanel\Event\Event as CPEvent;
  */
 class EventListener extends BaseListener implements SubscriberInterface
 {
-
 	/**
 	 * {@inheritdoc}
 	 */

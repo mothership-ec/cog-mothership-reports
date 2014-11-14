@@ -16,6 +16,7 @@ class BuildReportCollectionEvent extends ReportEvent
 
 	/**
 	 * Register report
+	 *
 	 * @param ReportInterface $report report to register
 	 */
 	public function registerReport(ReportInterface $report)
@@ -27,6 +28,7 @@ class BuildReportCollectionEvent extends ReportEvent
 
 	/**
 	 * Return the reports collection
+	 *
 	 * @return ReportCollection the reports
 	 */
 	public function getReports()

@@ -15,6 +15,8 @@ class ReportController extends Controller
 			return $this->redirectToReferer();
 		}
 
-		return $this->render('Message:Mothership:Report::report_view', ['report' => $report]);
+		return $this->render('Message:Mothership:Report::report_view', [
+			'report' => $report
+		]);
 	}
 }

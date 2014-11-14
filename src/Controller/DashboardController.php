@@ -20,7 +20,7 @@ class DashboardController extends BaseController
 		}
 
 		return $this->render('Message:Mothership:Report::dashboard', [
-				'reportGroups' => $reportGroups
-			]);
+			'reportGroups' => $reportGroups
+		]);
 	}
 }

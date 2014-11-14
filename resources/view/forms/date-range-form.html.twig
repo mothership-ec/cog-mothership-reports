@@ -1,0 +1,9 @@
+{% block form %}
+	<div class="content">
+		{{ form_start(report-date-range-form) }}
+			{{ form_row(report-date-range-form.date_from) }}
+			{{ form_row(report-date-range-form.date_to) }}
+			<button type="submit" class="button small filter">Submit</button>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}
