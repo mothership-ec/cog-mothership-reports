@@ -8,6 +8,7 @@ use Message\Cog\Localisation\Translator;
 use Message\Cog\Routing\UrlGenerator;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Message\Mothership\Report\Filter\Collection as FilterCollection;
 
 abstract class AbstractReport implements ReportInterface
 {
@@ -17,18 +18,21 @@ abstract class AbstractReport implements ReportInterface
 
 	protected $_builderFactory;
 	protected $_trans;
-	protected $_routingGenerator;
+	protected $_filters;
+	
+	private $_routingGenerator;
 
 	public function __construct(QueryBuilderFactory $builderFactory, Translator $trans, UrlGenerator $routingGenerator)
 	{
 		$this->_builderFactory = $builderFactory;
 		$this->_trans = $trans;
 		$this->_routingGenerator = $routingGenerator;
+		$this->_filters  = new FilterCollection;
 	}
 
 	public function getName()
 	{
-		return $this->_name;
+		return $this->name;
 	}
 
 	public function getDisplayName()
@@ -49,5 +53,20 @@ abstract class AbstractReport implements ReportInterface
 		// }
 
 		return $this->_routingGenerator->generate($routeName, $params, $absolute);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function setFilters(FilterCollection $filters)
+	{
+		$this->_filters = $filters;
+
+		return $this;
+	}
+
+	public function getFilters()
+	{
+		return $this->_filters;
 	}
 }

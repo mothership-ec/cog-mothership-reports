@@ -7,6 +7,11 @@
 {% block content %}
 	<div class="dashboard">
 		<div class="modules">
+		{% if form %}
+			{{ form_start(form) }}
+				<button class="button save small">Go</button>
+			{{ form_end(form) }}
+		{% endif %}
 			{{ report.displayName }}
 
 			{% for chart in report.charts %}
