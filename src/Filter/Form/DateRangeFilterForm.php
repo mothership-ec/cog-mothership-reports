@@ -5,7 +5,7 @@ namespace Message\Mothership\Report\Filter\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class DateFilterForm extends AbstractType
+class DateRangeFilterForm extends AbstractType
 {
 	public function getName()
 	{

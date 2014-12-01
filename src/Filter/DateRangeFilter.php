@@ -15,7 +15,7 @@ class DateRangeFilter implements FilterInterface
 
 	public function getForm()
 	{
-		return new Form\DateFilterForm;
+		return new Form\DateRangeFilterForm;
 	}
 
 	/**
