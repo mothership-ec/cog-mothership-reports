@@ -14,7 +14,7 @@ class DateFilterForm extends AbstractType
 
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$builder->add('startdate', 'datetime');
-		$builder->add('enddate', 'datetime');
+		$builder->add('startdate', 'date');
+		$builder->add('enddate', 'date');
 	}
 }
