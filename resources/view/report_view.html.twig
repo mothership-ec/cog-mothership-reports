@@ -5,19 +5,22 @@
 {% endblock %}
 
 {% block content %}
-	<div class="dashboard">
-		{% if form %}
-			{{ form_start(form) }}
-				{{ form_rest(form) }}
-				<button class="button save small">Go</button>
-			{{ form_end(form) }}
-		{% endif %}
-		<div class="modules">
-			{{ report.displayName }}
+	<hgroup class="title">
+	<h1>{{ report.displayName }}</h1>
+	</hgroup>
 
+	<div class="container-content reports">
+		<div class="tools">
+			<button class="button small add">Download as CSV</button>
+			{% if form %}
+				{{ form_start(form) }}
+					{{ form_rest(form) }}
+					<button class="button save small">Go</button>
+				{{ form_end(form) }}
+			{% endif %}
+		</div>
 			{% for chart in report.charts %}
 			    {% include chart.view with {'data' : chart.data, 'columns' : chart.columns} only %}
 			{% endfor %}
-		</div>
 	</div>
 {% endblock %}
