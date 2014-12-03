@@ -14,7 +14,7 @@ class DateRangeFilterForm extends AbstractType
 
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$builder->add('startdate', 'date');
-		$builder->add('enddate', 'date');
+		$builder->add('startdate', 'date', ['label' => 'from']);
+		$builder->add('enddate', 'date', ['label' => 'to']);
 	}
 }
