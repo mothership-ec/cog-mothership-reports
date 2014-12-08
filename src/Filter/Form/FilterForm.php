@@ -25,7 +25,7 @@ class FilterForm extends AbstractType
 	{
 		foreach($options['filters'] as $filter) {
 			$form = $filter->getForm();
-			$builder->add($form->getName(), $form);
+			$builder->add($form->getName(), $form, ['label' => false] );
 		}
 
 		$builder->addModelTransformer($this->_transformer);
