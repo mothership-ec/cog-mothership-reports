@@ -6,12 +6,12 @@
 
 {% block content %}
 	<hgroup class="title">
-	<h1>{{ report.displayName }}</h1>
+		<h1>{{ report.displayName }}</h1>
+		<button class="button small add">Download as CSV</button>
 	</hgroup>
 
 	<div class="container-content reports">
 		<div class="tools">
-			<button class="button small add">Download as CSV</button>
 			{% if form %}
 				{{ form_start(form) }}
 					{{ form_rest(form) }}
