@@ -31,12 +31,13 @@ class DataTransformer implements DataTransformerInterface
 	{
 		foreach ($val as $filter => $data) {
 			try {
-				$filter = $this->_filters->get(chop($filter, '_form'));
+				$filter = $this->_filters->get($filter);
 			} catch (\InvalidArgumentException $e) {
 				throw new \InvalidArgumentException("Filter $filter not found on collecton. Make sure it is added to the collection of available filters");
 			}
 
 			foreach($data as $attr => $val){
+				//de($data);
 				try {
 					$filter->{'set'.$attr}($val);
 				} catch (\Exception $e) {

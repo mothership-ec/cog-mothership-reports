@@ -2,7 +2,7 @@
 
 namespace Message\Mothership\Report\Filter;
 
-class DateRangeFilter implements FilterInterface
+class DateRange implements FilterInterface
 {
 	private $_to;
 	private $_from;
@@ -15,7 +15,7 @@ class DateRangeFilter implements FilterInterface
 
 	public function getForm()
 	{
-		return new Form\DateRangeFilterForm;
+		return new Form\DateRange;
 	}
 
 	/**
@@ -23,12 +23,12 @@ class DateRangeFilter implements FilterInterface
 	 */
 	public function getName()
 	{
-		return 'filter_date';
+		return 'date_range';
 	}
 
 	/**
 	 * Gets the date to filter from
-	 * 
+	 *
 	 * @return \DateTime the start date
 	 */
 	public function getStartDate()
@@ -38,7 +38,7 @@ class DateRangeFilter implements FilterInterface
 
 	/**
 	 * Gets the date to filter to
-	 * 
+	 *
 	 * @return \DateTime the end date
 	 */
 	public function getEndDate()
@@ -48,7 +48,7 @@ class DateRangeFilter implements FilterInterface
 
 	/**
 	 * Sets the date to filter from
-	 * 
+	 *
 	 * @return \DateTime the start date
 	 */
 	public function setStartDate($date)
@@ -58,7 +58,7 @@ class DateRangeFilter implements FilterInterface
 
 	/**
 	 * Sets the date to filter to
-	 * 
+	 *
 	 * @return \DateTime the end date
 	 */
 	public function setEndDate($date)

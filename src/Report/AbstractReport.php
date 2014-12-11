@@ -19,7 +19,7 @@ abstract class AbstractReport implements ReportInterface
 	protected $_builderFactory;
 	protected $_trans;
 	protected $_filters;
-	
+
 	private $_routingGenerator;
 
 	public function __construct(QueryBuilderFactory $builderFactory, Translator $trans, UrlGenerator $routingGenerator)
@@ -47,11 +47,6 @@ abstract class AbstractReport implements ReportInterface
 
 	public function generateUrl($routeName, $params = array(), $absolute = UrlGeneratorInterface::ABSOLUTE_PATH)
 	{
-		// if(null === $this->routingGenerator)
-		// {
-		// 	//throw new logic exception "did you override construct?"
-		// }
-
 		return $this->_routingGenerator->generate($routeName, $params, $absolute);
 	}
 

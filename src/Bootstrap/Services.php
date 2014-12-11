@@ -20,11 +20,5 @@ class Services implements ServicesInterface
 
 			return $reports;
 		};
-
-	// 	$services->extend('form.extensions', function($extensions,$c) {
-	// 		$extensions->add(new Report\Form\ReportExtension);
-
-	// 		return $extensions;
-	// 	});
 	}
 }

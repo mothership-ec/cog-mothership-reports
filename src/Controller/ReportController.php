@@ -22,16 +22,14 @@ class ReportController extends Controller
 			new \Message\Mothership\Report\Filter\Form\DataTransformer($report->getFilters())
 		);
 
-		$form = $this->createForm($form, null, ['filters' => $report->getFilters()]);
-
-		$form->handleRequest();
-
-		if ($form->isValid()) {
-			$data = $form->getData();
-			$report->setFilters($data);
+		if($report->getFilters()->count()) {
+			$form = $this->createForm($form, null, ['filters' => $report->getFilters()]);
+			$form->handleRequest();
+		} else {
+			$form = NULL;
 		}
 
-		return $this->render('Message:Mothership:Report::report_view', [
+ 		return $this->render('Message:Mothership:Report::report_view', [
 			'form' => $form,
 			'report' => $report
 		]);

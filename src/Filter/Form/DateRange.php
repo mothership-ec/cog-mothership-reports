@@ -5,11 +5,11 @@ namespace Message\Mothership\Report\Filter\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class DateRangeFilterForm extends AbstractType
+class DateRange extends AbstractType
 {
 	public function getName()
 	{
-		return 'filter_date_form';
+		return 'date_range';
 	}
 
 	public function buildForm(FormBuilderInterface $builder, array $options)
