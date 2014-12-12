@@ -14,7 +14,11 @@ class DateRange extends AbstractType
 
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$builder->add('startdate', 'date', ['label' => 'from']);
-		$builder->add('enddate', 'date', ['label' => 'to']);
+		$builder->add('startdate', 'datetime', [
+			'label' => 'From'
+		]);
+		$builder->add('enddate', 'datetime', [
+			'label' => 'To'
+		]);
 	}
 }

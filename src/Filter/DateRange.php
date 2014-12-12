@@ -51,9 +51,9 @@ class DateRange implements FilterInterface
 	 *
 	 * @return \DateTime the start date
 	 */
-	public function setStartDate($date)
+	public function setStartDate($from)
 	{
-		return $this->_from = $date;
+		return $this->_from = $from;
 	}
 
 	/**
@@ -61,8 +61,8 @@ class DateRange implements FilterInterface
 	 *
 	 * @return \DateTime the end date
 	 */
-	public function setEndDate($date)
+	public function setEndDate($to)
 	{
-		return $this->_to = $date;
+		return $this->_to = $to;
 	}
 }

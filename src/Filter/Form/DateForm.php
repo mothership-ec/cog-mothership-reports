@@ -14,6 +14,8 @@ class DateForm extends AbstractType
 
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$builder->add('datechoice', 'date', ['label' => 'date']);
+		$builder->add('datechoice', 'date', [
+			'label' => 'date'
+		]);
 	}
 }
