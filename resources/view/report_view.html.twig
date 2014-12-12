@@ -1,27 +1,34 @@
 {% extends 'Message:Mothership:ControlPanel::_templates/cp' %}
 
-{% block sidebar %}
-	{{ render(controller('Message:Mothership:Commerce::Controller:Product:Sidebar#index', {'productID':product.id}))}}
-{% endblock %}
 
 {% block content %}
-	<hgroup class="title">
-		<h1>{{ report.displayName }}</h1>
-		<button class="button small add">Download CSV</button>
-	</hgroup>
+	<section class="main-full">
+		<hgroup class="title">
+			<h1>{{ report.displayName }}</h1>
+			<button class="button small add">Download CSV</button>
+		</hgroup>
 
-	<div class="container-content reports">
-		{% if form %}
-			<div class="tools">
+		<div class="container-content reports">
+
+				{% for chart in report.charts %}
+				    {% include chart.view with {'data' : chart.data, 'columns' : chart.columns} only %}
+				{% endfor %}
+		</div>
+	</section>	
+
+	{% if form %}
+		<section class="reports-filtering">
+			<hgroup class="title">
+				<h1>Filters</h1>
+			</hgroup>
+
+			<div class="container-content short">
 				{{ form_start(form) }}
 					{{ form_rest(form) }}
 					<button class="button save small">Go</button>
 				{{ form_end(form) }}
 			</div>
+			<span class="button icon slide-hide caret-left"></span>	
+		</section>	
 		{% endif %}
-
-			{% for chart in report.charts %}
-			    {% include chart.view with {'data' : chart.data, 'columns' : chart.columns} only %}
-			{% endfor %}
-	</div>
 {% endblock %}
