@@ -14,6 +14,7 @@ abstract class AbstractReport implements ReportInterface
 {
 	public $name;
 	public $displayName;
+	public $description;
 	public $reportGroup;
 
 	protected $_builderFactory;
@@ -38,6 +39,11 @@ abstract class AbstractReport implements ReportInterface
 	public function getDisplayName()
 	{
 		return $this->_displayName;
+	}
+
+	public function getDescription()
+	{
+		return $this->_description;
 	}
 
 	public function getReportGroup()
