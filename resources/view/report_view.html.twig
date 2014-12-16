@@ -14,6 +14,8 @@
 
 		<div class="container-content reports">
 
+		<p>{{ report.description }}</p>
+
 			{% for chart in report.charts %}
 			    {% include chart.view with {'data' : chart.data, 'columns' : chart.columns} only %}
 			{% endfor %}
