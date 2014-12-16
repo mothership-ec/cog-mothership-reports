@@ -3,6 +3,8 @@
 namespace Message\Mothership\Report\Controller;
 
 use Message\Cog\Controller\Controller;
+use Message\Cog\FileDownload\Csv\Download;
+use Message\Cog\FileDownload\Csv\Table;
 
 class ReportController extends Controller
 {
@@ -33,5 +35,23 @@ class ReportController extends Controller
 			'form' => $form,
 			'report' => $report
 		]);
+	}
+
+	public function download($reportName)
+	{
+		try {
+			$report = $this->get('report.collection')->get($reportName);
+		} catch (\InvalidArgumentException $e) {
+			$this->addFlash('error', 'Could not find report ' . $reportName);
+			return $this->redirectToReferer();
+		}
+
+		$keys = [array_keys($report->getColumns())];
+		$data = array_merge($keys, $report->getData());
+		$table = new Table($data);
+
+		$download = new Download($table);
+
+		return $download->download($reportName);
 	}
 }

@@ -6,18 +6,30 @@ class DateForm implements FilterInterface
 {
 	private $_date;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param        $date
+	 */
 	public function __construct($date = null)
 	{
 		$this->_date = $date;
 	}
 
+	/**
+	 * Gets the form for the filter.
+	 *
+	 * @return Form\DateRange the form
+	 */
 	public function getForm()
 	{
 		return new Form\DateForm;
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Gets the names of the filter.
+	 *
+	 * @return String the name
 	 */
 	public function getName()
 	{

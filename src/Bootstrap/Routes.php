@@ -12,5 +12,7 @@ class Routes implements RoutesInterface
 
 		$router['ms.report']->add('ms.report.dashboard', '', 'Message:Mothership:Report::Controller:DashboardController#index');
 		$router['ms.report']->add('ms.report.view', 'view/{reportName}', 'Message:Mothership:Report::Controller:ReportController#showReport');
+
+		$router['ms.report']->add('ms.report.download', 'view/{reportName}/download', 'Message:Mothership:Report::Controller:ReportController#download');
 	}
 }

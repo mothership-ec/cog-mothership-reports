@@ -37,7 +37,6 @@ class DataTransformer implements DataTransformerInterface
 			}
 
 			foreach($data as $attr => $val){
-				//de($data);
 				try {
 					$filter->{'set'.$attr}($val);
 				} catch (\Exception $e) {

@@ -7,19 +7,32 @@ class DateRange implements FilterInterface
 	private $_to;
 	private $_from;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param       $to
+	 * @param       $from
+	 */
 	public function __construct($to = null, $from = null)
 	{
 		$this->_to   = $to;
 		$this->_from = $from;
 	}
 
+	/**
+	 * Gets the form for the filter.
+	 *
+	 * @return Form\DateRange the form
+	 */
 	public function getForm()
 	{
 		return new Form\DateRange;
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Gets the names of the filter.
+	 *
+	 * @return String the name
 	 */
 	public function getName()
 	{

@@ -5,10 +5,12 @@
 	<section class="main-full">
 		<hgroup class="title">
 			<h1>{{ report.displayName }}</h1>
-			<button class="button small download">Download CSV</button>
-		</hgroup>
+				<a class="button small download" href="{{ url('ms.report.download', {'reportName' : report.name} ) }}">
+					Download CSV </a>
 
-		<p>{{ report.description }}</p>
+			<p>{{ report.description }}</p>
+
+		</hgroup>
 
 		<div class="container-content reports">
 

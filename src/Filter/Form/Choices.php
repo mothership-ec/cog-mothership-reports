@@ -7,6 +7,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class Choices extends AbstractType
 {
+
+	/**
+	 * Constructor.
+	 *
+	 * @param String  $filterName    The unique filter name.
+	 * @param String  $label         The label for the form field.
+	 * @param Array   $choices       The choices for the form field.
+	 * @param Bool    $multichoice   If the form is multiple choice.
+	 */
 	public function __construct($label, $choices, $multichoice, $filterName)
     {
     	$this->label = $label;
@@ -15,11 +24,24 @@ class Choices extends AbstractType
         $this->filterName = $filterName;
     }
 
+	/**
+	 * Gets the filter name.
+	 *
+	 * @return string name of the filter
+	 */
 	public function getName()
 	{
 		return $this->filterName;
 	}
 
+	/**
+	 * description
+	 *
+	 * @param  FormBuilderInterface $builder   description
+	 * @param  Array $options                  description
+	 *
+	 * @return description
+	 */
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder->add('choices', 'choice', [
