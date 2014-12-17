@@ -62,7 +62,7 @@ class Choices implements FilterInterface
 	 *
 	 * @return String the choices
 	*/
-	public function setChoices($choices)
+	public function setChoices($choice)
 	{
 		return $this->_choices = $choice;
 	}

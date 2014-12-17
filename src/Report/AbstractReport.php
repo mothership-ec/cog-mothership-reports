@@ -39,7 +39,7 @@ abstract class AbstractReport implements ReportInterface
 	/**
 	 * Gets the name set for report.
 	 *
-	 * @return String       Name
+	 * @return string       The report name.
 	 */
 	public function getName()
 	{
@@ -49,7 +49,7 @@ abstract class AbstractReport implements ReportInterface
 	/**
 	 * Gets the display name set for report.
 	 *
-	 * @return String       Display name
+	 * @return string       The report display name.
 	 */
 	public function getDisplayName()
 	{
@@ -59,7 +59,7 @@ abstract class AbstractReport implements ReportInterface
 	/**
 	 * Gets the description about the report.
 	 *
-	 * @return String       Description
+	 * @return string       The report description.
 	 */
 	public function getDescription()
 	{
@@ -69,7 +69,7 @@ abstract class AbstractReport implements ReportInterface
 	/**
 	 * Gets the group the report as been set to.
 	 *
-	 * @return String       Group name
+	 * @return string       The report group.
 	 */
 	public function getReportGroup()
 	{
@@ -96,9 +96,9 @@ abstract class AbstractReport implements ReportInterface
 	/**
 	 * Adds filters to the report
 	 *
-	 * @param  array $data The filters to add to the report
+	 * @param  array   $data    The filters to add to the report
 	 *
-	 * @return $this       Return $this for chainability
+	 * @return $this   Return $this for chainability
 	 */
 	public function setFilters(FilterCollection $filters)
 	{
@@ -108,20 +108,32 @@ abstract class AbstractReport implements ReportInterface
 	}
 
 	/**
-	 * Gets the filters on the report
+	 * Gets the filters on the report.
 	 *
-	 * @return FilterCollection the filters
+	 * @return FilterCollection  The reports filters
 	 */
 	public function getFilters()
 	{
 		return $this->_filters;
 	}
 
+	/**
+	 * Runs query and turns data into array.
+	 *
+	 * @return array  Returns data as an array.
+	 */
 	public function getData()
 	{
 		return $this->_dataTransform($this->_getQuery()->run());
 	}
 
+	/**
+	 * Runs query and turns data into array.
+	 *
+	 * @param  array  $columns  Takes array of column names & data types.
+	 *
+	 * @return array  Returns columns as string in JSON format
+	 */
 	protected function _parseColumns(array $columns)
 	{
 		$parsed = [];
@@ -133,7 +145,24 @@ abstract class AbstractReport implements ReportInterface
 		return json_encode($parsed);
 	}
 
+	/**
+	 * Takes the data and transforms it into a useable format.
+	 *
+	 * @param  DB\Result     $data     The data from the report query.
+	 * @param  string|null   $output   The type of output required.
+	 *
+	 * @return string|array  Returns data as string in JSON format or array.
+	 */
 	abstract protected function _dataTransform($data, $output = null);
 
+	/**
+	 * Dispatches event to get all sales, returns & shipping queries.
+	 *
+	 * Unions all sub queries & creates parent query.
+	 * Sum all totals and grouping by DATE & CURRENCY.
+	 * Order by DATE.
+	 *
+	 * @return Query
+	 */
 	abstract protected function _getQuery();
 }

@@ -45,6 +45,19 @@ class ReportController extends Controller
 			$this->addFlash('error', 'Could not find report ' . $reportName);
 			return $this->redirectToReferer();
 		}
+		/**
+		 * @todo  move to IoC
+		 */
+		$form = new \Message\Mothership\Report\Filter\Form\FilterForm(
+			new \Message\Mothership\Report\Filter\Form\DataTransformer($report->getFilters())
+		);
+
+		if($report->getFilters()->count()) {
+			$form = $this->createForm($form, null, ['filters' => $report->getFilters()]);
+			$form->handleRequest();
+		} else {
+			$form = NULL;
+		}
 
 		$keys = [array_keys($report->getColumns())];
 		$data = array_merge($keys, $report->getData());

@@ -5,7 +5,7 @@
 	<section class="main-full">
 		<hgroup class="title">
 			<h1>{{ report.displayName }}</h1>
-				<a class="button small download" href="{{ url('ms.report.download', {'reportName' : report.name} ) }}">
+				<a class="button small download" href="{{ url('ms.report.download', {'reportName' : report.name} ) }}" data-external-form="#report-form" data-method="{{ report.name }}/download">
 					Download CSV </a>
 
 			<p>{{ report.description }}</p>
@@ -30,7 +30,7 @@
 			</hgroup>
 
 			<div class="container-content short">
-				{{ form_start(form) }}
+				{{ form_start(form, { attr: {id : 'report-form'} } ) }}
 					{{ form_rest(form) }}
 					<button class="button save small">Go</button>
 				{{ form_end(form) }}
