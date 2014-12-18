@@ -6,11 +6,6 @@ use Message\Cog\Controller\Controller as BaseController;
 
 class DashboardController extends BaseController
 {
-	/**
-	 *
-	 *
-	 * @return Message\Cog\HTTP\Response
-	 */
 	public function index()
 	{
 		$reports = $this->get('report.collection');

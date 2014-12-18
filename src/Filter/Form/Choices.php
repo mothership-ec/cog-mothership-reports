@@ -7,7 +7,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class Choices extends AbstractType
 {
-
 	/**
 	 * Constructor.
 	 *
@@ -35,12 +34,7 @@ class Choices extends AbstractType
 	}
 
 	/**
-	 * description
-	 *
-	 * @param  FormBuilderInterface $builder   description
-	 * @param  Array $options                  description
-	 *
-	 * @return description
+	 * {@inheritdoc}
 	 */
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{

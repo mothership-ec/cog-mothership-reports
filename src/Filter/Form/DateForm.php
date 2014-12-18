@@ -18,12 +18,7 @@ class DateForm extends AbstractType
 	}
 
 	/**
-	 * description
-	 *
-	 * @param  FormBuilderInterface $builder   description
-	 * @param  Array $options                  description
-	 *
-	 * @return description
+	 * {@inheritdoc}
 	 */
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{

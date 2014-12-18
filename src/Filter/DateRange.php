@@ -10,8 +10,8 @@ class DateRange implements FilterInterface
 	/**
 	 * Constructor.
 	 *
-	 * @param       $to
-	 * @param       $from
+	 * @param  \DateTime     $to
+	 * @param  \DateTime     $from
 	 */
 	public function __construct($to = null, $from = null)
 	{

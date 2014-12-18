@@ -9,7 +9,11 @@ class BuildReportCollectionEvent extends ReportEvent
 {
 	private $_reports;
 
-
+	/**
+	 * Constructor.
+	 *
+	 * @param ReportCollection   $collection
+	 */
 	public function __construct(ReportCollection $collection)
 	{
 		$this->_reports = $collection;

@@ -7,7 +7,7 @@ abstract class AbstractChart implements ChartInterface
 	/**
 	 * Sets the data for the chart
 	 *
-	 * @param String $data   A JSON representation of the data
+	 * @param string $data   A JSON representation of the data.
 	 */
 	public function setData($data)
 	{
@@ -17,7 +17,7 @@ abstract class AbstractChart implements ChartInterface
 	/**
 	 * Sets the columns for the chart
 	 *
-	 * @param String $columns   A JSON representation of the columns
+	 * @param string $columns   A JSON representation of the columns.
 	 */
 	public function setColumns($columns)
 	{

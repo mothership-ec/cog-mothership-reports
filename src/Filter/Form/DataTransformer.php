@@ -9,6 +9,11 @@ class DataTransformer implements DataTransformerInterface
 {
 	private $_filters;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param \FilterCollection   $filters
+	 */
 	public function __construct(FilterCollection $filters)
 	{
 		$this->_filters = $filters;

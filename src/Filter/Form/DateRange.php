@@ -7,11 +7,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class DateRange extends AbstractType
 {
-
 	/**
 	 * Gets the filter name.
 	 *
-	 * @return string name of the filter
+	 * @return string Name of the filter
 	 */
 	public function getName()
 	{
@@ -19,12 +18,7 @@ class DateRange extends AbstractType
 	}
 
 	/**
-	 * description
-	 *
-	 * @param  FormBuilderInterface $builder   description
-	 * @param  Array $options                  description
-	 *
-	 * @return description
+	 * {@inheritdoc}
 	 */
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{

@@ -9,7 +9,7 @@ class DateForm implements FilterInterface
 	/**
 	 * Constructor.
 	 *
-	 * @param        $date
+	 * @param \DateTime   $date
 	 */
 	public function __construct($date = null)
 	{
