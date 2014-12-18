@@ -8,6 +8,18 @@ use Symfony\Component\Form\FormBuilderInterface;
 class DateRange extends AbstractType
 {
 	/**
+	 * Constructor.
+	 *
+	 * @param  \DateTime     $to
+	 * @param  \DateTime     $from
+	 */
+	public function __construct($from = null, $to = null)
+	{
+		$this->_from = $from;
+		$this->_to   = $to;
+	}
+
+	/**
 	 * Gets the filter name.
 	 *
 	 * @return string Name of the filter
@@ -23,10 +35,12 @@ class DateRange extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder->add('startdate', 'datetime', [
-			'label' => 'From'
+			'label' => 'From',
+			'data'  => $this->_from ?: null,
 		]);
 		$builder->add('enddate', 'datetime', [
-			'label' => 'To'
+			'label' => 'To',
+			'data'  => $this->_to ?: null,
 		]);
 	}
 }

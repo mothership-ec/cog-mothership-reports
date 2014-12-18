@@ -4,8 +4,8 @@ namespace Message\Mothership\Report\Filter;
 
 class DateRange implements FilterInterface
 {
-	private $_to;
 	private $_from;
+	private $_to;
 
 	/**
 	 * Constructor.
@@ -26,7 +26,7 @@ class DateRange implements FilterInterface
 	 */
 	public function getForm()
 	{
-		return new Form\DateRange;
+		return new Form\DateRange($this->getStartDate(), $this->getEndDate());
 	}
 
 	/**

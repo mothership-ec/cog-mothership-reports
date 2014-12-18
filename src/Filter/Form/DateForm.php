@@ -8,6 +8,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 class DateForm extends AbstractType
 {
 	/**
+	 * Constructor.
+	 *
+	 * @param  \Date     $date
+	 */
+	public function __construct($date = null)
+	{
+		$this->_date = $date;
+	}
+
+	/**
 	 * Gets the filter name.
 	 *
 	 * @return string name of the filter
@@ -23,7 +33,8 @@ class DateForm extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder->add('datechoice', 'date', [
-			'label' => 'Date'
+			'label' => 'Date',
+			'data'  => $this->_date ?: null,
 		]);
 	}
 }
