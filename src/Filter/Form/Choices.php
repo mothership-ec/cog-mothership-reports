@@ -40,7 +40,7 @@ class Choices extends AbstractType
 	{
 		$builder->add('choices', 'choice', [
 			'label'    => $this->label,
-			'choices'  => $this->choices,
+			'choices'  => array_combine($this->choices, $this->choices),
 			'multiple' => $this->multichoice
 		]);
 	}
