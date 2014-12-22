@@ -6,8 +6,12 @@ use Message\Cog\ValueObject\Collection as BaseCollection;
 
 class Collection extends BaseCollection
 {
-	public function _configure()
+	protected function _configure()
 	{
-		$this->setKey('name');
+		$this->setKey(function($report) {
+			return $report->getName();
+		});
+
+		$this->setType('Message\\Mothership\\Report\\Report\\ReportInterface');
 	}
 }

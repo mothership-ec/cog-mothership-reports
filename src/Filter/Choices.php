@@ -36,9 +36,9 @@ class Choices implements FilterInterface
 	}
 
 	/**
-	 * Gets the names of the filter.
+	 * Gets the name of the filter.
 	 *
-	 * @return String the name
+	 * @return string the name
 	 */
 	public function getName()
 	{
@@ -48,11 +48,31 @@ class Choices implements FilterInterface
 	/**
 	 * Gets the type to filter
 	 *
-	 * @return Array|String the type
+	 * @return string the type
+	 */
+	public function getLabel()
+	{
+		return $this->_label;
+	}
+
+	/**
+	 * Gets the type to filter
+	 *
+	 * @return array|string the type
 	 */
 	public function getChoices()
 	{
 		return $this->_choices;
+	}
+
+	/**
+	 * Gets if it allows multiple choice
+	 *
+	 * @return bool
+	 */
+	public function getMultichoice()
+	{
+		return $this->_multichoice;
 	}
 
 	/**

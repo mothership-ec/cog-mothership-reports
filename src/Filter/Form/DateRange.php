@@ -7,6 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class DateRange extends AbstractType
 {
+	private $_from;
+	private $_to;
+
 	/**
 	 * Constructor.
 	 *

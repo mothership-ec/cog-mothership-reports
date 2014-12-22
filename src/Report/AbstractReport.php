@@ -12,13 +12,13 @@ use Message\Mothership\Report\Filter\Collection as FilterCollection;
 
 abstract class AbstractReport implements ReportInterface
 {
-	public $name;
-	public $displayName;
-	public $description;
-	public $reportGroup;
-
+	protected $_name;
+	protected $_displayName;
+	protected $_description;
+	protected $_reportGroup;
 	protected $_builderFactory;
 	protected $_filters;
+	protected $_charts;
 
 	private $_routingGenerator;
 
@@ -43,7 +43,7 @@ abstract class AbstractReport implements ReportInterface
 	 */
 	public function getName()
 	{
-		return $this->name;
+		return $this->_name;
 	}
 
 	/**
@@ -143,6 +143,62 @@ abstract class AbstractReport implements ReportInterface
 		}
 
 		return json_encode($parsed);
+	}
+
+	/**
+	 * Sets the name for report.
+	 *
+	 * @param  string  $name
+	 *
+	 * @return $this   Return $this for chainability
+	 */
+	protected function _setName($name)
+	{
+		$this->_name = $name;
+
+		return $this;
+	}
+
+	/**
+	 * Sets the display name for report.
+	 *
+	 * @param  string  $displayName
+	 *
+	 * @return $this   Return $this for chainability
+	 */
+	protected function _setDisplayName($displayName)
+	{
+		$this->_displayName = $displayName;
+
+		return $this;
+	}
+
+	/**
+	 * Sets the description about the report.
+	 *
+	 * @param  string  $description
+	 *
+	 * @return $this   Return $this for chainability
+	 */
+	protected function _setDescription($description)
+	{
+		$this->_description = $description;
+
+		return $this;
+	}
+
+	/**
+	 * Sets the group the report is in.
+	 *
+	 * @param  string  $group
+	 *
+	 * @return $this   Return $this for chainability
+	 */
+	protected function _setReportGroup($group)
+	{
+		$this->_reportGroup = $group;
+
+		return $this;
 	}
 
 	/**

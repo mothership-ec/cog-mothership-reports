@@ -66,16 +66,16 @@ interface ReportInterface
 	/**
 	 * Adds filters to the report
 	 *
-	 * @param  array  $data  The filters to add to the report
+	 * @param  array   $data    The filters to add to the report
 	 *
-	 * @return $this  Return $this for chainability
+	 * @return $this   Return $this for chainability
 	 */
-	public function setFilters(FilterCollection $data);
+	public function setFilters(FilterCollection $filters);
 
 	/**
-	 * Gets the filters on the report
+	 * Gets the filters on the report.
 	 *
-	 * @return FilterCollection The report filters
+	 * @return FilterCollection  The reports filters
 	 */
 	public function getFilters();
 

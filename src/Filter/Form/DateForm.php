@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class DateForm extends AbstractType
 {
+	private $_date;
+
 	/**
 	 * Constructor.
 	 *

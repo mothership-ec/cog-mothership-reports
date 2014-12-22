@@ -6,7 +6,7 @@ use Message\Cog\ValueObject\Collection as BaseCollection;
 
 class Collection extends BaseCollection
 {
-	public function _configure()
+	protected function _configure()
 	{
 		$this->setKey(function($item) {
 			return $item->getName();

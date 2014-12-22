@@ -61,12 +61,13 @@ This report displays `TableChart`, and uses filters `DateRange` and `Choices`. I
 
 ```
 		parent::__construct($builderFactory, $routingGenerator);
-		$this->name        = 'payments_refunds';
-		$this->displayName = 'Payments & Refunds';
-		$this->reportGroup = 'Transactions';
-		$this->description =
-			"This report displays all payments & refunds.
-			By default it includes all data from the last month (by completed date).";
+		$this->_setName('payments_refunds');
+		$this->_setDisplayName('Payments & Refunds');
+		$this->_setReportGroup('Transactions');
+		$this->_setDescription('
+			This report displays all payments & refunds.
+			By default it includes all data from the last month (by completed date).
+		');
 		$this->_charts[]   = new TableChart;
 		$this->_filters->add(new DateRange);
 		$startDate = new \DateTime;

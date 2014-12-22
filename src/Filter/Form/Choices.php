@@ -7,6 +7,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class Choices extends AbstractType
 {
+	private $_filterName;
+	private $_label;
+	private $_choices;
+	private $_multichoice;
+
 	/**
 	 * Constructor.
 	 *
@@ -17,10 +22,10 @@ class Choices extends AbstractType
 	 */
 	public function __construct($label, $choices, $multichoice, $filterName)
     {
-    	$this->label = $label;
-        $this->choices = $choices;
-        $this->multichoice = $multichoice;
-        $this->filterName = $filterName;
+    	$this->_label = $label;
+        $this->_choices = $choices;
+        $this->_multichoice = $multichoice;
+        $this->_filterName = $filterName;
     }
 
 	/**
@@ -30,7 +35,7 @@ class Choices extends AbstractType
 	 */
 	public function getName()
 	{
-		return $this->filterName;
+		return $this->_filterName;
 	}
 
 	/**
@@ -39,9 +44,9 @@ class Choices extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder->add('choices', 'choice', [
-			'label'    => $this->label,
-			'choices'  => array_combine($this->choices, $this->choices),
-			'multiple' => $this->multichoice
+			'label'    => $this->_label,
+			'choices'  => array_combine($this->_choices, $this->_choices),
+			'multiple' => $this->_multichoice
 		]);
 	}
 }
