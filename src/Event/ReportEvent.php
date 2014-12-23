@@ -20,9 +20,9 @@ class ReportEvent extends Event
 	}
 
 	/**
-	 * Returns all the QueryBuilders for sub-queries.
+	 * Returns all the QueryBuilders for query appends.
 	 *
-	 * @return array An arrat of QueryBuilders
+	 * @return array An array of QueryBuilders
 	 */
 	public function getQueryBuilders()
 	{
@@ -30,7 +30,7 @@ class ReportEvent extends Event
 	}
 
 	/**
-	 * Adds a sub-query to the array of QueryBuilders
+	 * Adds a sub-query to the array of QueryBuilders.
 	 *
 	 * @param QueryBuilder $queryBuilder
 	 */
@@ -40,7 +40,7 @@ class ReportEvent extends Event
 	}
 
 	/**
-	 * Sets the filters for the sub-queries to use.
+	 * Sets the filters for the query appends to use.
 	 *
 	 * @param FilterCollection $filters
 	 *
@@ -54,7 +54,7 @@ class ReportEvent extends Event
 	}
 
 	/**
-	 * Returns the filters to be used in sub-queries
+	 * Returns the filters to be used in query appends.
 	 *
 	 * @return FilterCollection
 	 */
