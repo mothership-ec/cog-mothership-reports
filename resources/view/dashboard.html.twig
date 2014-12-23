@@ -1,0 +1,21 @@
+{% extends 'Message:Mothership:ControlPanel::_templates/cp' %}
+
+{% block sidebar %}
+	{{ render(controller('Message:Mothership:Commerce::Controller:Product:Sidebar#index', {'productID':product.id}))}}
+{% endblock %}
+
+{% block content %}
+	<div class="dashboard">
+		<div class="modules">
+			{% for group in reportGroups %}
+				{% for report in group %}
+					{% if loop.first %}
+						<br /><strong>{{ group.name }}</strong><br />
+					{% else %}
+						<a href="{{ url('ms.report.view', {'reportName': report.name}) }}">{{ report.displayName }}</a><br />
+					{% endif %}
+ 				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

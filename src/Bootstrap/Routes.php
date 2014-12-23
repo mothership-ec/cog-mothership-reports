@@ -8,10 +8,11 @@ class Routes implements RoutesInterface
 {
 	public function registerRoutes($router)
 	{
-		$router['ms.report']->setParent('ms.cp')->setPrefix('/report');
+		$router['ms.report']->setParent('ms.cp')->setPrefix('/reports');
 
-		$router['ms.report']->add('ms.report.dashboard', '', 'Message:Mothership:Report::Controller:Report:Dashboard#index');
-		$router['ms.report']->add('ms.report.view', '/view/{slug}', 'Message:Mothership:Report::Controller:Report:View#index')
-			->setRequirement('slug', '[A-Za-z\-]+');
+		$router['ms.report']->add('ms.report.dashboard', '', 'Message:Mothership:Report::Controller:DashboardController#index');
+		$router['ms.report']->add('ms.report.view', 'view/{reportName}', 'Message:Mothership:Report::Controller:ReportController#showReport');
+
+		$router['ms.report']->add('ms.report.download', 'view/{reportName}/download', 'Message:Mothership:Report::Controller:ReportController#download');
 	}
 }
