@@ -12,11 +12,12 @@ class DashboardController extends BaseController
 		$reportGroups = [];
 
 		foreach ($reports as $report) {
-			if(!in_array($report->reportGroup, $reportGroups)){
-				$reportGroups[$report->reportGroup]['name'] = $report->reportGroup;
+
+			if(!in_array($report->getReportGroup(), $reportGroups)){
+				$reportGroups[$report->getReportGroup()]['name'] = $report->getReportGroup();
 			}
 
-			$reportGroups[$report->reportGroup][] = $report;
+			$reportGroups[$report->getReportGroup()][] = $report;
 		}
 
 		return $this->render('Message:Mothership:Report::dashboard', [

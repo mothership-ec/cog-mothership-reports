@@ -9,6 +9,11 @@ class DataTransformer implements DataTransformerInterface
 {
 	private $_filters;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param \FilterCollection   $filters
+	 */
 	public function __construct(FilterCollection $filters)
 	{
 		$this->_filters = $filters;
@@ -37,7 +42,6 @@ class DataTransformer implements DataTransformerInterface
 			}
 
 			foreach($data as $attr => $val){
-				//de($data);
 				try {
 					$filter->{'set'.$attr}($val);
 				} catch (\Exception $e) {

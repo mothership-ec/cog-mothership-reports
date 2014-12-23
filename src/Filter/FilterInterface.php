@@ -12,14 +12,14 @@ interface FilterInterface
 	/**
 	 * Gets the filter name.
 	 *
-	 * @return string name of the filter
+	 * @return string   name of the filter
 	 */
 	public function getName();
 
 	/**
 	 * Gets the form for this filter
 	 *
-	 * @return AbstractType the form
+	 * @return AbstractType   the form
 	 */
 	public function getForm();
 }

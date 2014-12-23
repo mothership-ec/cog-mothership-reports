@@ -5,16 +5,21 @@
 	<section class="main-full">
 		<hgroup class="title">
 			<h1>{{ report.displayName }}</h1>
-			<button class="button small add">Download CSV</button>
+				<a class="button small download" href="{{ url('ms.report.download', {'reportName' : report.name} ) }}" data-external-form="#report-form" data-method="{{ report.name }}/download">
+					Download CSV </a>
+
 		</hgroup>
 
 		<div class="container-content reports">
 
-				{% for chart in report.charts %}
-				    {% include chart.view with {'data' : chart.data, 'columns' : chart.columns} only %}
-				{% endfor %}
+		<p class="description">{{ report.description }}</p>
+
+			{% for chart in report.charts %}
+			    {% include chart.view with {'data' : chart.data, 'columns' : chart.columns} only %}
+			{% endfor %}
+
 		</div>
-	</section>	
+	</section>
 
 	{% if form %}
 		<section class="reports-filtering">
@@ -23,12 +28,12 @@
 			</hgroup>
 
 			<div class="container-content short">
-				{{ form_start(form) }}
+				{{ form_start(form, { attr: {id : 'report-form'} } ) }}
 					{{ form_rest(form) }}
 					<button class="button save small">Go</button>
 				{{ form_end(form) }}
 			</div>
-			<span class="button icon slide-hide caret-left"></span>	
-		</section>	
+			<span class="button icon slide-hide caret-right"></span>
+		</section>
 		{% endif %}
 {% endblock %}
