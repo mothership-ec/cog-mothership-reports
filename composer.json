@@ -30,6 +30,6 @@
 		"php": ">=5.4.0",
 
 		"message/cog"              : "~3.8",
-		"message/cog-mothership-cp": "~1.8"
+		"message/cog-mothership-cp": "~1.8 | ~2.0"
 	}
 }
