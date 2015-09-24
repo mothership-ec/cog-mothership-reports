@@ -95,6 +95,8 @@ class Choices implements FilterInterface
 
 	public function setFormChoices($choices)
 	{
-		return $this->_formChoices = $choices;
+		$this->_formChoices = $choices;
+
+		return $this;
 	}
 }
