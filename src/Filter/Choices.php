@@ -84,15 +84,25 @@ class Choices implements FilterInterface
 	/**
 	 * Sets the choices to filter
 	 *
-	 * @param  $choices description
+	 * @param  $choices array | mixed
 	 *
 	 * @return String the choices
 	*/
-	public function setChoices($choice)
+	public function setChoices($choices)
 	{
-		return $this->_choices = $choice;
+		return $this->_choices = $choices;
 	}
 
+	/**
+	 * Set the choices as they will appear on the form. In versions 2.0.0 and earlier the forms would populate with
+	 * choices set in `$_choices`, but this causes problems as this property is also used for storing form data
+	 * values, so should this method should be used instead. If this method is not used the filter will default to
+	 * its original behaviour.
+	 *
+	 * @param $choices
+	 *
+	 * @return $this
+	 */
 	public function setFormChoices($choices)
 	{
 		$this->_formChoices = $choices;
