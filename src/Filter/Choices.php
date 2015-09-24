@@ -8,6 +8,7 @@ class Choices implements FilterInterface
 	private $_label;
 	private $_choices;
 	private $_multichoice;
+	private $_formChoices = null;
 
 	/**
 	 * Constructor.
@@ -32,7 +33,12 @@ class Choices implements FilterInterface
 	 */
 	public function getForm()
 	{
-		return new Form\Choices($this->_label, $this->_choices, $this->_multichoice, $this->_filterName);
+		$choices = $this->_formChoices === null
+			? array_combine($this->_choices, $this->_choices)
+			: $this->_formChoices
+		;
+
+		return new Form\Choices($this->_label, $choices, $this->_multichoice, $this->_filterName);
 	}
 
 	/**
@@ -87,4 +93,8 @@ class Choices implements FilterInterface
 		return $this->_choices = $choice;
 	}
 
+	public function setFormChoices($choices)
+	{
+		return $this->_formChoices = $choices;
+	}
 }

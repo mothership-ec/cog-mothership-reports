@@ -43,10 +43,20 @@ class Choices extends AbstractType
 	 */
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
+		$choices = $this->_isAssocArray($this->_choices)
+			? $this->_choices
+			: array_combine($this->_choices, $this->_choices)
+		;
+
 		$builder->add('choices', 'choice', [
 			'label'    => $this->_label,
-			'choices'  => array_combine($this->_choices, $this->_choices),
+			'choices'  => $choices,
 			'multiple' => $this->_multichoice
 		]);
+	}
+
+	private function _isAssocArray($array)
+	{
+		return array_keys($arr) !== range(0, count($arr) - 1);
 	}
 }
