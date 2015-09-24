@@ -57,6 +57,6 @@ class Choices extends AbstractType
 
 	private function _isAssocArray($array)
 	{
-		return array_keys($arr) !== range(0, count($arr) - 1);
+		return array_keys($array) !== range(0, count($array) - 1);
 	}
 }
