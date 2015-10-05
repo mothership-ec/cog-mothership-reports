@@ -7,8 +7,28 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class DateRange extends AbstractType
 {
+	/**
+	 * @var \DateTime | null
+	 */
 	private $_from;
+
+	/**
+	 * @var \DateTime | null
+	 */
 	private $_to;
+
+	/**
+	 * @var string
+	 */
+	private $_type = 'datetime';
+
+	/**
+	 * @var array
+	 */
+	private $_validFormTypes = [
+		'date',
+		'datetime'
+	];
 
 	/**
 	 * Constructor.
@@ -33,15 +53,36 @@ class DateRange extends AbstractType
 	}
 
 	/**
+	 * Set which type of form to use to create the date range form, available options:
+	 * - 'date'
+	 * - 'datetime'
+	 *
+	 * @param $type
+	 */
+	public function setType($type)
+	{
+		if (!is_string($type)) {
+			$varType = (gettype($type) === 'object') ? get_class($type) : gettype($type);
+			throw new \InvalidArgumentException('Type must be a string, ' . $varType . ' given');
+		}
+
+		if (!in_array($type, $this->_validFormTypes)) {
+			throw new \InvalidArgumentException('`' . $type . '` is not a valid form type for this filter, allowed options: ' . implode(', ', $this->_validFormTypes));
+		}
+
+		$this->_type = $type;
+	}
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$builder->add('startdate', 'datetime', [
+		$builder->add('startdate', $this->_type, [
 			'label' => 'From',
 			'data'  => $this->_from ?: null,
 		]);
-		$builder->add('enddate', 'datetime', [
+		$builder->add('enddate', $this->_type, [
 			'label' => 'To',
 			'data'  => $this->_to ?: null,
 		]);
