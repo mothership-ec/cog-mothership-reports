@@ -44,7 +44,9 @@ class DateRange implements FilterInterface
 	 * - 'date'
 	 * - 'datetime'
 	 *
-	 * @param $type
+	 * @param string $type
+	 * @throws \InvalidArgumentException   Throws exception if $type is not a string
+	 * @throws \LogicException             Throws exception if $type is not listed as valid
 	 */
 	public function setFormType($type)
 	{
@@ -54,7 +56,7 @@ class DateRange implements FilterInterface
 		}
 
 		if (!in_array($type, $this->_validFormTypes)) {
-			throw new \InvalidArgumentException('`' . $type . '` is not a valid form type for this filter, allowed options: ' . implode(', ', $this->_validFormTypes));
+			throw new \LogicException('`' . $type . '` is not a valid form type for this filter, allowed options: ' . implode(', ', $this->_validFormTypes));
 		}
 
 		$this->_type = $type;
@@ -109,7 +111,7 @@ class DateRange implements FilterInterface
 	/**
 	 * Sets the date to filter from
 	 *
-	 *  @param \DateTime $from
+	 * @param \DateTime $from
 	 *
 	 * @return \DateTime the start date
 	 */

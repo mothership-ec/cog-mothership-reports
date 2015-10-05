@@ -58,6 +58,8 @@ class DateRange extends AbstractType
 	 * - 'datetime'
 	 *
 	 * @param $type
+	 * @throws \InvalidArgumentException   Throws exception if $type is not a string
+	 * @throws \LogicException             Throws exception if $type is not listed as valid
 	 */
 	public function setType($type)
 	{
@@ -67,7 +69,7 @@ class DateRange extends AbstractType
 		}
 
 		if (!in_array($type, $this->_validFormTypes)) {
-			throw new \InvalidArgumentException('`' . $type . '` is not a valid form type for this filter, allowed options: ' . implode(', ', $this->_validFormTypes));
+			throw new \LogicException('`' . $type . '` is not a valid form type for this filter, allowed options: ' . implode(', ', $this->_validFormTypes));
 		}
 
 		$this->_type = $type;
