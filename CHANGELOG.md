@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0
+
+- Added `Filter\Form\DateRange::setType()` method for setting the form fields to either `date` or `datetime`. Defaults to `datetime` if not set.
+- Added `Filter\DateRange::setFormType()` method which calls `Filter\Form\DateRange::setType()` to set the form field type for the filter.
+
 ## 2.1.0
 
 - Added `Filter\ModifyQueryInterface` interface representing filter classes that can modify a query builder instance before the data is loaded

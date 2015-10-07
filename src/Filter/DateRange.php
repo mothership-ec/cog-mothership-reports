@@ -4,8 +4,28 @@ namespace Message\Mothership\Report\Filter;
 
 class DateRange implements FilterInterface
 {
+	/**
+	 * @var \DateTime | null
+	 */
 	private $_from;
+
+	/**
+	 * @var \DateTime | null
+	 */
 	private $_to;
+
+	/**
+	 * @var string | null
+	 */
+	private $_type;
+
+	/**
+	 * @var array
+	 */
+	private $_validFormTypes = [
+		'date',
+		'datetime'
+	];
 
 	/**
 	 * Constructor.
@@ -20,13 +40,42 @@ class DateRange implements FilterInterface
 	}
 
 	/**
+	 * Set which type of form fields the DateRange form should use. Available options:
+	 * - 'date'
+	 * - 'datetime'
+	 *
+	 * @param string $type
+	 * @throws \InvalidArgumentException   Throws exception if $type is not a string
+	 * @throws \LogicException             Throws exception if $type is not listed as valid
+	 */
+	public function setFormType($type)
+	{
+		if (!is_string($type)) {
+			$varType = (gettype($type) === 'object') ? get_class($type) : gettype($type);
+			throw new \InvalidArgumentException('Tyoe must be a string, ' . $varType . ' given');
+		}
+
+		if (!in_array($type, $this->_validFormTypes)) {
+			throw new \LogicException('`' . $type . '` is not a valid form type for this filter, allowed options: ' . implode(', ', $this->_validFormTypes));
+		}
+
+		$this->_type = $type;
+	}
+
+	/**
 	 * Gets the form for the filter.
 	 *
 	 * @return Form\DateRange the form
 	 */
 	public function getForm()
 	{
-		return new Form\DateRange($this->getStartDate(), $this->getEndDate());
+		$form = new Form\DateRange($this->getStartDate(), $this->getEndDate());
+
+		if (null !== $this->_type) {
+			$form->setType($this->_type);
+		}
+
+		return $form;
 	}
 
 	/**
@@ -62,6 +111,8 @@ class DateRange implements FilterInterface
 	/**
 	 * Sets the date to filter from
 	 *
+	 * @param \DateTime $from
+	 *
 	 * @return \DateTime the start date
 	 */
 	public function setStartDate($from)
@@ -71,6 +122,8 @@ class DateRange implements FilterInterface
 
 	/**
 	 * Sets the date to filter to
+	 *
+	 * @param \DateTime $to
 	 *
 	 * @return \DateTime the end date
 	 */
