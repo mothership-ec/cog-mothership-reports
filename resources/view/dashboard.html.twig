@@ -1,5 +1,17 @@
 {% extends 'Message:Mothership:ControlPanel::_templates/cp' %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	{% stylesheets
+		'@Message:Mothership:Reports::resources/assets/css/reports.css'
+
+		output='/assets/css/ms_reports.css'
+		filter='csscogulerewrite,?cssmin'
+	%}
+		<link rel="stylesheet" href="{{ asset_url }}">
+	{% endstylesheets %}
+{% endblock %}
+
 {% block sidebar %}
 	{{ render(controller('Message:Mothership:Commerce::Controller:Product:Sidebar#index', {'productID':product.id}))}}
 {% endblock %}
