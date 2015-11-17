@@ -1,5 +1,16 @@
 {% extends 'Message:Mothership:ControlPanel::_templates/cp' %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	{% stylesheets
+		'@Message:Mothership:Report::resources/assets/css/reports.css'
+
+		output='/assets/css/ms_reports.css'
+		filter='csscogulerewrite,?cssmin'
+	%}
+		<link rel="stylesheet" href="{{ asset_url }}">
+	{% endstylesheets %}
+{% endblock %}
 
 {% block content %}
 	<section class="main-full">

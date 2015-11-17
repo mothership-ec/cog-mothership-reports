@@ -1,0 +1,137 @@
+/* Reports
+------------------------------------------------------------ */
+
+.reports-filtering {
+	position: absolute;
+	overflow: visible;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 220px;
+	height: 100%;
+	right: 0px;
+	box-shadow: 0 2px 50px rgba(0,0,0,0.3);
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+.reports-filtering select {
+	min-width: 100%;
+}
+
+.reports-filtering .button {
+	margin-bottom: 10px;
+}
+
+hgroup .button.download:hover {
+	color: #fff;
+}
+
+.reports {
+	padding-right: 220px;
+}
+
+.reports .description {
+	font-size: 0.85em;
+}
+
+#table_div {
+	clear: both;
+	width: 100%;
+	max-width: 1000px;
+}
+
+
+.reports .google-visualization-table-table {
+	background: none;
+	width: 100%;
+	table-layout: auto;
+}
+
+.reports .google-visualization-table-tr-head,
+.reports .google-visualization-table-tr-head .gradient {
+	position: relative;
+	border: none;
+	text-align: left;
+	box-shadow: none;
+	padding: 12px 30px 10px 15px;
+	border-top: 1px solid #bccdda;
+	border-bottom: 1px solid #bccdda;
+	border-left: 1px solid #bccdda;
+	background:  #e4f0f9;
+	-webkit-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7);
+	-moz-box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7);
+	box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7);
+}
+
+.reports .google-visualization-table-sortind {
+	color: #333;
+	position: absolute;
+	top: 12px;
+	right: 7px;
+}
+
+.reports .google-visualization-table-tr-head {
+	border-right: 1px solid #bccdda;
+}
+
+.reports .google-visualization-table-td-number {
+	font-family: "Inconsolata";
+}
+
+.reports .google-visualization-table-td {
+	border: 1px solid #ccc;
+	padding: 5px;
+	box-shadow: none;
+}
+
+.reports tr {
+	border-right: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+}
+
+.reports .field {
+	width: 50%;
+}
+
+.reports .field input {
+	padding: 5px;
+}
+
+tr.total {
+	border: 1px solid #26537c;
+	background-color: #5995c0;
+	color: #fff;
+	font-weight: bold;
+
+}
+
+
+table tr.total:nth-child(even) td,
+table tr.total:nth-child(odd) td  {
+	border: 1px solid #26537c;
+	background: none;
+	-webkit-box-shadow: inset 1px 1px 0 #64a5d4;
+	-moz-box-shadow: inset 1px 1px 0 #64a5d4;
+	box-shadow: inset 1px 1px 0 #64a5d4;
+	text-shadow: 0px 1px 1px rgba(000,000,000,0.25);
+	font-weight: normal;
+}
+
+tr.grandtotal {
+	border: 1px solid #3e6886;
+	background-color: #4e82a7;
+	color: #fff;
+	font-weight: bold;
+
+}
+
+table tr.grandtotal:nth-child(even) td, table tr.grandtotal:nth-child(odd) td  {
+	border: 1px solid #3e6886;
+	background: none;
+	-webkit-box-shadow: inset 1px 1px 0 #5992ba;
+	-moz-box-shadow: inset 1px 1px 0 #5992ba;
+	box-shadow: inset 1px 1px 0 #5992ba;
+}
